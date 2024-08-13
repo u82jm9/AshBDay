@@ -8,7 +8,7 @@ import com.homeapp.backend.models.logger.InfoLogger;
 import com.homeapp.backend.models.logger.WarnLogger;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
+import org.jsoup.nodes.Element;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,10 +16,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @SpringBootApplication(scanBasePackages = "com.homeapp.backend")
 public class backend implements CommandLineRunner {
@@ -28,6 +25,9 @@ public class backend implements CommandLineRunner {
     private static final InfoLogger infoLogger = new InfoLogger();
     private static final WarnLogger warnLogger = new WarnLogger();
     private static final ErrorLogger errorLogger = new ErrorLogger();
+    private static final String today = LocalDate.now().toString();
+    private static String price;
+    private static String name;
 
     public static void main(String[] args) {
         checkAllLinks();
@@ -45,26 +45,25 @@ public class backend implements CommandLineRunner {
      */
     public static void checkAllLinks() {
         List<Part> allParts = readLinksFile();
-        LinkedList<String> problemLinks = new LinkedList<>();
+        Set<Part> problemParts = new HashSet<>();
         LinkedList<Part> partListToWriteToFile = new LinkedList<>();
         for (Part part : allParts) {
             try {
                 int statusCode = Jsoup.connect(part.getLink()).execute().statusCode();
+                partListToWriteToFile.add(part);
                 if (statusCode == 200) {
-                    setPartAttributesFromLink(part);
-                    partListToWriteToFile.add(part);
+                    setPartAttributesFromLink(problemParts, part);
                 } else {
-                    problemLinks.add(part.getLink());
-                    partListToWriteToFile.add(part);
+                    problemParts.add(part);
                 }
             } catch (IOException e) {
-                problemLinks.add(part.getLink());
+                problemParts.add(part);
             }
         }
         writePartsToFile(partListToWriteToFile);
         errorLogger.log("**** Please check the following links ****");
-        errorLogger.log("You have " + problemLinks.size() + " links with issues");
-        problemLinks.forEach(entry -> errorLogger.log("Issue with link: " + entry));
+        errorLogger.log("You have " + problemParts.size() + " issues with links ref doc");
+        problemParts.forEach(part -> errorLogger.log("Internal ref: " + part.getInternalReference() + "\nLink: " + part.getLink()));
         errorLogger.log("**** Checking links complete ****");
         infoLogger.log("Finished checking links!");
     }
@@ -101,67 +100,87 @@ public class backend implements CommandLineRunner {
      *
      * @param part the part that is to updated
      */
-    static void setPartAttributesFromLink(Part part) {
+    static void setPartAttributesFromLink(Set<Part> problemParts, Part part) {
         try {
             Document doc = Jsoup.connect(part.getLink()).timeout(5000).get();
-            String today = LocalDate.now().toString();
-            Optional<Elements> e;
-            String name = "";
-            String price = "";
+            Optional<Element> e;
             if (part.getLink().contains("dolan-bikes")) {
-                e = Optional.of(doc.select("div.productBuy > div.productPanel"));
-                if (e.get().isEmpty()) {
-                    errorLogger.log("An Error occurred !!Connecting to link: " + part.getLink() + "!!For bike Component: " + part.getComponent());
+                e = Optional.ofNullable(doc.select("div.productBuy > div.productPanel").get(0));
+                if (!e.isPresent()) {
+                    problemParts.add(part);
                     return;
                 } else {
                     name = e.get().select("h1").first().text();
                     price = e.get().select("div.price").select("span.price").first().text();
                 }
             } else if (part.getLink().contains("genesisbikes")) {
-                e = Optional.of(doc.select("div.product-info-main-header"));
-                if (e.get().isEmpty()) {
-                    errorLogger.log("An Error occurred !!Connecting to link: " + part.getLink() + "!!For bike Component: " + part.getComponent());
+                e = Optional.ofNullable(doc.select("div.product-info-main-header").get(0));
+                if (!e.isPresent()) {
+                    problemParts.add(part);
                     return;
                 } else {
                     name = e.get().select("h1.page-title").text();
                     price = e.get().select("div.product-info-price > div.price-final_price").first().select("span").text();
                 }
             } else if (part.getLink().contains("wiggle") || part.getLink().contains("chainreactioncycles")) {
-                e = Optional.of(doc.select("div.ProductDetail_container__FX6xF"));
-                if (e.get().isEmpty()) {
-                    errorLogger.log("An Error occurred !!Connecting to link: " + part.getLink() + "!!For bike Component: " + part.getComponent());
+                e = Optional.ofNullable(doc.getElementById("productDetails"));
+                if (!e.isPresent()) {
+                    problemParts.add(part);
                     return;
                 } else {
-                    name = e.get().select("h1").first().text();
-                    price = e.get().select("div.ProductPrice_productPrice__Fg1nA").select("p").first().text();
+                    name = Objects.requireNonNull(e.get().getElementById("lblProductName")).text();
+                    price = Objects.requireNonNull(e.get().getElementById("lblSellingPrice")).text();
+                }
+            } else if (part.getLink().contains("halfords")) {
+                e = Optional.ofNullable(doc.getElementById("productInfoBlock"));
+                if (!e.isPresent()) {
+                    problemParts.add(part);
+                    return;
+                } else {
+                    name = Objects.requireNonNull(e.get().select("h1").first()).text();
+                    price = Objects.requireNonNull(e.get().select("div.price").select("span.b-price__sale")).text();
+                }
+            } else if (part.getLink().contains("sjscycles")) {
+                e = Optional.of(doc);
+                if (!e.isPresent()) {
+                    problemParts.add(part);
+                    return;
+                } else {
+                    name = Objects.requireNonNull(e.get().select("title").first().text());
+                    price = Objects.requireNonNull(e.get().getElementById("ProductOptions").select("div.pl2-notnarrow").select("div.container-2-3-stackSM").select("span.f-xxxlarge")).text();
                 }
             } else if (part.getLink().contains("halo")) {
-                e = Optional.of(doc.select("div.ProductDetail_container__FX6xF"));
-                if (e.get().isEmpty()) {
-                    errorLogger.log("An Error occurred !!Connecting to link: " + part.getLink() + "!!For bike Component: " + part.getComponent());
+                e = Optional.ofNullable(doc.select("div.productDetails").get(0));
+                if (!e.isPresent()) {
+                    problemParts.add(part);
                     return;
                 } else {
-                    name = e.get().select("h1").first().text();
+                    name = Objects.requireNonNull(e.get().select("h1").first()).text();
                     if (e.get().select("div.priceSummary").select("ins").first() != null) {
-                        price = e.get().select("div.priceSummary").select("ins").select("span").first().text().replace("£", "").split(" ")[0];
+                        price = Objects.requireNonNull(e.get().select("div.priceSummary").select("ins").select("span").first()).text();
                     } else {
-                        price = e.get().select("div.priceSummary").select("span").first().text().replace("£", "").split(" ")[0];
+                        price = Objects.requireNonNull(e.get().select("div.priceSummary").select("span").first()).text();
                     }
-                    e.get().select("div.priceSummary").select("ins").first();
+                }
+            } else {
+                errorLogger.log("Trying to use unknown website");
+                problemParts.add(part);
+            }
+            if (price != null) {
+                price = price.replaceAll("[^\\d.]", "");
+                price = price.split("\\.")[0] + "." + price.split("\\.")[1].substring(0, 2);
+                if (!price.contains(".")) {
+                    price = price + ".00";
                 }
             }
-            price = price.replaceAll("[^\\d.]", "");
-            price = price.split("\\.")[0] + "." + price.split("\\.")[1].substring(0, 2);
-            if (!price.contains(".")) {
-                price = price + ".00";
-            }
-            warnLogger.log("Found Frame: " + name);
-            warnLogger.log("For price: " + price);
-            warnLogger.log("Frame link: " + part.getLink());
+            warnLogger.log("Found: " + name);
+            warnLogger.log("For: " + price);
+            warnLogger.log("From: " + part.getLink());
             part.setDateLastUpdated(today);
             part.setName(name);
             part.setPrice(price);
         } catch (IOException e) {
+            problemParts.add(part);
             errorLogger.log("An IOException occurred from: getPartFromLink!!See error message: " + e.getMessage() + "!!For bike Component: " + part.getComponent());
         }
     }

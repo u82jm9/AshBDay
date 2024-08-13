@@ -89,25 +89,26 @@ public class BikePartsService {
             // Wheels which require Gears are from Wiggle
             if (!bike.getBrakeType().equals(RIM)) {
                 if (bike.getWheelPreference().equals("Cheap")) {
-                    ref = wiggleURL + "mavic-allroad-disc-650b-wheelset-845223#colcode=84522303";
+                    ref = "WheelRimCheap";
                 } else {
-                    ref = wiggleURL + "deda-rs4-db-carbon-tubeless-wheels-836218#colcode=83621890";
+                    ref = "WheelRimExpensive";
                 }
             } else {
                 if (bike.getWheelPreference().equals("Cheap")) {
-                    ref = wiggleURL + "miche-altur-wheels-846217#colcode=84621703";
+                    ref = "WheelRimExpensive";
                 } else {
-                    ref = wiggleURL + "miche-altur-wheels-846217#colcode=84621703";
+                    ref = "WheelDiscExpensive";
                 }
             }
         } else {
             // Wheels for Single Speed are from Halo
             if (bike.getWheelPreference().equals("Cheap")) {
-                ref = haloURL + "aerorage-track-700c-wheels/";
+                ref = "WheelFixieCheap";
             } else {
-                ref = haloURL + "carbaura-crit-700c-wheelset/";
+                ref = "WheelFixieExpensive";
             }
         }
+        assert shimanoGroupsetService != null;
         shimanoGroupsetService.findPartFromInternalRef(ref);
     }
 
@@ -122,14 +123,14 @@ public class BikePartsService {
         String component = "HandleBars";
         String method = "GetHandleBarParts";
         try {
+            assert fullBikeService != null;
             bike = fullBikeService.getBike();
             infoLogger.log("Method for Getting Handlebar Parts from web");
             switch (bike.getHandleBarType()) {
-                case DROPS -> ref = chainReactionURL + "thomson-alloy-road-drop-bar-aero-top-837837#colcode=83783703";
-                case FLAT -> ref = chainReactionURL + "dmr-odub-handlebar-318mm-clamp-836711#colcode=83671103";
-                case BULLHORNS -> ref = wiggleURL + "deda-crononero-low-rider-tri-bar-836815#colcode=83681503";
-                case FLARE ->
-                        ref = chainReactionURL + "thomson-carbon-dirt-drop-drop-bar-25d-flare-837830#colcode=83783003";
+                case DROPS -> ref = "BarsDrop";
+                case FLAT -> ref = "BarsFlat";
+                case BULLHORNS -> ref = "BarsBull";
+                case FLARE -> ref = "BarsFlare";
             }
             shimanoGroupsetService.findPartFromInternalRef(ref);
         } catch (Exception e) {
@@ -145,24 +146,20 @@ public class BikePartsService {
         switch (bike.getFrame().getFrameStyle()) {
             case ROAD -> {
                 if (bike.getFrame().isDiscBrakeCompatible()) {
-                    ref = dolanURL + "dolan-adx-disc-titanium-road-frameset/";
+                    ref = "FrameRoadDisc";
                 } else {
-                    ref = dolanURL + "adx-titanium-road-frameset/";
+                    ref = "FrameRoadRim";
                 }
             }
             case TOUR -> {
                 if (bike.getFrame().isDiscBrakeCompatible()) {
-                    ref = genesisURL + "genesis-fugio-frameset-vargn22330/";
+                    ref = "FrameTourDisc";
                 } else {
-                    ref = genesisURL + "genesis-equilibrium-725-frameset-vargn21810";
+                    ref = "FrameTourRim";
                 }
             }
-            case GRAVEL -> {
-                ref = dolanURL + "dolan-gxa2020-aluminium-gravel-frameset/";
-            }
-            case SINGLE_SPEED -> {
-                ref = dolanURL + "dolan-pre-cursa-aluminium-frameset/";
-            }
+            case GRAVEL -> ref = "frameGravel";
+            case SINGLE_SPEED -> ref = "frameFixie";
         }
         shimanoGroupsetService.findPartFromInternalRef(ref);
     }

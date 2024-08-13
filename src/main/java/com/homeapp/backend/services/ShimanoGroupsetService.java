@@ -27,8 +27,6 @@ import static com.homeapp.backend.models.bike.Enums.ShifterStyle.STI;
  */
 @Service
 public class ShimanoGroupsetService {
-    private static final String chainReactionURL = "https://www.chainreactioncycles.com/p/";
-    private static final String wiggleURL = "https://www.wiggle.com/p/";
     private static FullBike bike;
     private BikeParts bikeParts;
     private final InfoLogger infoLogger = new InfoLogger();
@@ -36,6 +34,7 @@ public class ShimanoGroupsetService {
     private final ErrorLogger errorLogger = new ErrorLogger();
     private final FullBikeService fullBikeService;
     private static final String LINKS_FILE = "src/main/resources/links.json";
+    private static String ref;
     private final ObjectMapper om;
 
     /**
@@ -85,43 +84,28 @@ public class ShimanoGroupsetService {
     }
 
     private void getBrakeLevers() {
-        String ref = "";
         String component = "Brake-Levers";
-        String method = "getBrakeLevers";
         infoLogger.log("Getting Parts for: " + component);
         bike = fullBikeService.getBike();
         if (bike.getBrakeType().equals(HYDRAULIC_DISC)) {
-            ref = wiggleURL + "shimano-m6100-brake-2-piston-704288#colcode=70428803";
-            findPartFromInternalRef("Left-" + ref);
-            ref = wiggleURL + "shimano-m6100-brake-2-piston-704288#colcode=70428803";
-            findPartFromInternalRef("Right-" + ref);
+            ref = "Left-HydraulicBrakeLever";
+            findPartFromInternalRef(ref);
+            ref = "Right-HydraulicBrakeLever";
+            findPartFromInternalRef(ref);
         } else {
-            ref = wiggleURL + "shimano-deore-t610-v-brake-levers-930835#colcode=93083503";
+            ref = "MechanicalBrakeLever";
             findPartFromInternalRef(ref);
         }
     }
 
     private void getBrakeCalipers() {
-        String ref = "";
         String component = "Brake-Caliper";
         String method = "getBrakeCalipers";
         infoLogger.log("Getting Parts for: " + component);
         bike = fullBikeService.getBike();
         switch (bike.getBrakeType()) {
-            case RIM -> {
-                if (bike.getNumberOfRearGears() == 9) {
-                    ref = wiggleURL + "shimano-tiagra-r451-dual-pivot-brake-caliper-930477#colcode=93047703";
-                } else {
-                    ref = wiggleURL + "shimano-105-r7000-road-brake-caliper-932489#colcode=93248903";
-                }
-            }
-            case MECHANICAL_DISC -> {
-                if (bike.getNumberOfRearGears() == 9) {
-                    ref = wiggleURL + "shimano-br-r317-rear-road-disc-brake-caliper-930854#colcode=93085403";
-                } else {
-                    ref = chainReactionURL + "trp-spyre-post-mount-caliper-837329#colcode=83732903";
-                }
-            }
+            case RIM -> ref = "RimBrakeCaliper";
+            case MECHANICAL_DISC -> ref = "MechanicalBrakeCaliper";
             default -> {
                 warnLogger.log("Not getting link for calipers as Hydraulic calipers and levers are together");
             }
@@ -147,36 +131,33 @@ public class ShimanoGroupsetService {
             //Below links are useless, have taken out option for Frontend selection
             case 1 -> {
                 if (bike.getNumberOfRearGears() == 9) {
-                    ref = chainReactionURL + "microshift-advent-m090-1x9-speed-gear-brake-levers";
+                    ref = "MechanicalSTI_1_9";
                 } else if (bike.getNumberOfRearGears() == 10) {
-                    ref = chainReactionURL + "shimano-tiagra-4700-sti-shifter-set-2x10";
+                    ref = "MechanicalSTI_1_10";
                 } else if (bike.getNumberOfRearGears() == 11) {
-                    ref = wiggleURL + "shimano-105-r7000-11-speed-levers";
+                    ref = "MechanicalSTI_1_11";
                 } else {
-                    ref = wiggleURL + "shimano-ultegra-r8150-di2-12-speed-shifter-set";
+                    ref = "MechanicalSTI_1_12";
                 }
             }
             case 2 -> {
                 if (bike.getNumberOfRearGears() == 9) {
-                    ref = chainReactionURL + "shimano-sora-r3000-sti-mechanical-9-speed-shifter---for-double-912434#colcode=91243403";
+                    ref = "MechanicalSTI_2_9";
                 } else if (bike.getNumberOfRearGears() == 10) {
-                    ref = wiggleURL + "shimano-tiagra-4700-double-sti-shifter-911771#colcode=91177103";
-                } else
-//                        if (bike.getNumberOfRearGears() == 11)
-                {
-                    ref = chainReactionURL + "shimano-105-r7000-mechanical-shifters--pair-913387#colcode=91338703";
+                    ref = "MechanicalSTI_2_10";
+                } else if (bike.getNumberOfRearGears() == 11) {
+                    ref = "MechanicalSTI_2_11";
+                } else {
+                    //No Option is currently provided for 2x12
+                    ref = "MechanicalSTI_2_12";
                 }
-                //no website found for this option
-//                    else {
-//                        link = wiggleURL + "shimano-ultegra-r8150-di2-12-speed-shifter-set";
-//                    }
             }
             case 3 -> {
                 if (bike.getNumberOfRearGears() == 9) {
-                    ref = chainReactionURL + "microshift-r9-3x9-speed-dual-control-levers";
+                    ref = "MechanicalSTI_3_9";
                 } else {
-                    ref = wiggleURL + "shimano-tiagra-4700-3x10-speed-lever-set";
                     bike.setNumberOfRearGears(10);
+                    ref = "MechanicalSTI_3_10";
                     warnLogger.log("3 by Shimano Gears are restricted to a maximum of 10 at the back");
                 }
             }
@@ -189,36 +170,50 @@ public class ShimanoGroupsetService {
     }
 
     private void getHydraulicSTIShifters() {
-        String ref = "";
         String component = "Hydraulic-Shifter";
         String method = "getHydraulicSTIShifters";
         infoLogger.log("Getting Parts for: " + component);
         bike = fullBikeService.getBike();
         if (bike.getNumberOfRearGears() == 10) {
-            ref = chainReactionURL + "shimano-tiagra-4725-2x10-speed-road-disc-brake";
+            ref = "HydraulicSTI_10";
         } else if (bike.getNumberOfRearGears() == 11) {
-            ref = chainReactionURL + "shimano-105-r7025-hydraulic-disc-brake";
+            ref = "HydraulicSTI_11";
         } else if (bike.getNumberOfRearGears() == 12) {
-            ref = wiggleURL + "shimano-105-r7170-di2-hydraulic-disc-brake";
+            ref = "HydraulicSTI_12";
         } else {
-            ref = wiggleURL + "clarks-m2-hydraulic-disc-brake-with-rotor";
+            ref = "HydraulicSTI_9";
         }
-        findPartFromInternalRef("Right-" + ref);
+        if (!ref.isEmpty()) {
+            findPartFromInternalRef("Right-" + ref);
+            ref = null;
+        } else {
+            bikeParts.getErrorMessages().add(new Error(component, method, ref));
+        }
         if (bike.getNumberOfFrontGears() == 1) {
-            ref = chainReactionURL + "shimano-grx-820-hydraulic-drop-bar-brake-lever";
+            ref = "Left-HydraulicSTI_1";
+        } else if (bike.getNumberOfFrontGears() == 2) {
+            ref = "Left-HydraulicSTI_2";
+        } else if (bike.getNumberOfFrontGears() == 3) {
+            ref = "Left-HydraulicSTI_3";
+        } else {
+            ref = null;
         }
-        findPartFromInternalRef("Left-" + ref);
+        if (!ref.isEmpty()) {
+            findPartFromInternalRef("Left-" + ref);
+        } else {
+            bikeParts.getErrorMessages().add(new Error(component, method, ref));
+        }
     }
 
     private void getLeverShifters() {
-        String ref = "";
         String component = "Trigger-Shifter";
         String method = "getLeverShifters";
         infoLogger.log("Getting Parts for: " + component);
         switch ((int) bike.getNumberOfRearGears()) {
-            case 10 -> ref = wiggleURL + "shimano-deore-m6000-10-speed-trigger-shifter";
-            case 11 -> ref = wiggleURL + "shimano-xt-m8000-11-speed-trigger-shifter";
-            default -> ref = chainReactionURL + "shimano-altus-m2010-9-speed-shifter";
+            case 9 -> ref = "TriggerShifter_9";
+            case 10 -> ref = "TriggerShifter_10";
+            case 11 -> ref = "TriggerShifter_11";
+            default -> ref = "TriggerShifter_8";
         }
         if (!ref.isEmpty()) {
             findPartFromInternalRef(ref);
@@ -228,7 +223,6 @@ public class ShimanoGroupsetService {
     }
 
     private void getChainring() {
-        String ref = "";
         String component = "Chainring";
         String method = "getChainring";
         infoLogger.log("Getting Parts for: " + component);
@@ -237,31 +231,37 @@ public class ShimanoGroupsetService {
             //Could not find active site for 1 by components
             //Below links are useless, have taken out option for Frontend selection
             case 1 -> {
-                if (bike.getNumberOfRearGears() == 10 || bike.getNumberOfRearGears() == 11) {
-                    ref = chainReactionURL + "shimano-m5100-deore-10-11-speed-single-chainset";
+                if (bike.getNumberOfRearGears() == 10) {
+                    ref = "ChainSet_1_10";
+                } else if (bike.getNumberOfRearGears() == 11) {
+                    ref = "ChainSet_1_11";
                 } else if (bike.getNumberOfRearGears() == 12) {
-                    ref = chainReactionURL + "shimano-m6100-deore-12-speed-mtb-single-chainset";
+                    ref = "ChainSet_1_10";
                 } else {
-                    ref = wiggleURL + "miche-primato-advanced-track-single-chainset";
+                    ref = "ChainSet_1";
                 }
             }
             case 2 -> {
                 if (bike.getNumberOfRearGears() == 9) {
-                    ref = chainReactionURL + "shimano-claris-r2000-8-speed-double-chainset";
+                    ref = "ChainSet_2_9";
                 } else if (bike.getNumberOfRearGears() == 10) {
-                    ref = chainReactionURL + "shimano-tiagra-4700-10-speed-chainset";
+                    ref = "ChainSet_2_10";
                 } else if (bike.getNumberOfRearGears() == 11) {
-                    ref = chainReactionURL + "shimano-105-r7000-11-speed-road-double-chainset";
+                    ref = "ChainSet_2_11";
                 } else if (bike.getNumberOfRearGears() == 12) {
-                    ref = chainReactionURL + "shimano-105-r7100-12-speed-double-chainset";
+                    ref = "ChainSet_2_12";
+                } else {
+                    ref = "ChainSet_2";
                 }
             }
             case 3 -> {
                 if (bike.getNumberOfRearGears() == 9) {
-                    ref = wiggleURL + "shimano-sora-r3030-9-speed-triple-chainset";
-                } else {
-                    ref = chainReactionURL + "shimano-tiagra-4703-10sp-road-triple-chainset";
+                    ref = "ChainSet_3_9";
+                } else if (bike.getNumberOfRearGears() == 10) {
+                    ref = "ChainSet_3_10";
                     bike.setNumberOfRearGears(10);
+                } else {
+                    ref = "ChainSet_3";
                 }
             }
         }
@@ -273,17 +273,17 @@ public class ShimanoGroupsetService {
     }
 
     private void getCassette() {
-        String ref = "";
         String component = "Cassette";
         String method = "getCassette";
         infoLogger.log("Getting Parts for: " + component);
         bike = fullBikeService.getBike();
         switch ((int) bike.getNumberOfRearGears()) {
-            case 9 -> ref = wiggleURL + "shimano-sora-hg400-9-speed-cassette";
-            case 10 -> ref = chainReactionURL + "shimano-tiagra-hg500-10-speed-road-cassette-5360107149";
-            case 11 -> ref = chainReactionURL + "shimano-105-r7000-11-speed-cassette";
-            case 12 -> ref = chainReactionURL + "shimano-105-r7100-12-speed-cassette";
-            default -> ref = wiggleURL + "shimano-dx-single-speed-sprocket";
+            case 8 -> ref = "Cassette_8";
+            case 9 -> ref = "Cassette_9";
+            case 10 -> ref = "Cassette_10";
+            case 11 -> ref = "Cassette_11";
+            case 12 -> ref = "Cassette_12";
+            default -> ref = "Cassette_1";
         }
         if (!ref.isEmpty()) {
             findPartFromInternalRef(ref);
@@ -293,17 +293,17 @@ public class ShimanoGroupsetService {
     }
 
     private void getChain() {
-        String ref = "";
         String component = "Chain";
         String method = "getChain";
         infoLogger.log("Getting Parts for: " + component);
         bike = fullBikeService.getBike();
         switch ((int) bike.getNumberOfRearGears()) {
-            case 9 -> ref = wiggleURL + "shimano-xt-hg93-9-speed-chain";
-            case 10 -> ref = wiggleURL + "shimano-hg95-10-speed-chain";
-            case 11 -> ref = wiggleURL + "shimano-hg601q-105-5800-11-speed-chain";
-            case 12 -> ref = wiggleURL + "shimano-slx-m7100-12-speed-chain";
-            default -> ref = chainReactionURL + "shimano-nexus-single-speed-chain";
+            case 8 -> ref = "Chain_8";
+            case 9 -> ref = "Chain_9";
+            case 10 -> ref = "Chain_10";
+            case 11 -> ref = "Chain_11";
+            case 12 -> ref = "Chain_12";
+            default -> ref = "Chain_1";
         }
         if (!ref.isEmpty()) {
             findPartFromInternalRef(ref);
@@ -313,18 +313,16 @@ public class ShimanoGroupsetService {
     }
 
     private void getRearDerailleur() {
-        String ref = "";
         String component = "Rear-Derailleur";
         String method = "getRearDerailleur";
         infoLogger.log("Getting Parts for: " + component);
         bike = fullBikeService.getBike();
         switch ((int) bike.getNumberOfRearGears()) {
-            case 9 -> ref = wiggleURL + "shimano-sora-r3000-9-speed-rear-derailleur";
-            case 10 -> ref = wiggleURL + "shimano-tiagra-4700-10-speed-rear-derailleur-gs";
-            case 11 -> ref = chainReactionURL + "shimano-105-r7000-11-speed-rear-derailleur";
-            case 12 -> ref = chainReactionURL + "shimano-ultegra-r8150-di2-12-speed-rear-derailleur";
-            default -> {
-            }
+            case 9 -> ref = "RDerailleur_9";
+            case 10 -> ref = "RDerailleur_10";
+            case 11 -> ref = "RDerailleur_11";
+            case 12 -> ref = "RDerailleur_12";
+            default -> ref = "RDerailleur_8";
         }
         if (!ref.isEmpty() && bike.getNumberOfRearGears() > 1) {
             findPartFromInternalRef(ref);
@@ -334,32 +332,31 @@ public class ShimanoGroupsetService {
     }
 
     private void getFrontDerailleur() {
-        String ref = "";
         String component = "Front-Derailleur";
         String method = "getFrontDerailleur";
         infoLogger.log("Getting Parts for: " + component);
         bike = fullBikeService.getBike();
         switch ((int) bike.getNumberOfFrontGears()) {
             case 1 -> {
-                ref = wiggleURL + "deda-dog-fang-chain-catcher";
+                ref = "FDerailleur_1";
                 warnLogger.log("Front Derailleur not required, providing chain catcher");
             }
             case 2 -> {
                 if (bike.getNumberOfRearGears() == 9) {
-                    ref = wiggleURL + "shimano-sora-r3000-9-speed-double-front-derailleur";
+                    ref = "FDerailleur_2_9";
                 } else if (bike.getNumberOfRearGears() == 10) {
-                    ref = wiggleURL + "shimano-tiagra-fd4700-10-speed-front-derailleur";
+                    ref = "FDerailleur_2_10";
                 } else if (bike.getNumberOfRearGears() == 11) {
-                    ref = wiggleURL + "shimano-105-r7000-11-speed-front-derailleur";
+                    ref = "FDerailleur_2_11";
                 } else if (bike.getNumberOfRearGears() == 12) {
-                    ref = wiggleURL + "shimano-105-r7150-di2-e-tube-front-derailleur";
+                    ref = "FDerailleur_2_12";
                 }
             }
             case 3 -> {
                 if (bike.getNumberOfRearGears() == 9) {
-                    ref = wiggleURL + "shimano-sora-r3030-9-speed-triple-front-derailleur";
+                    ref = "FDerailleur_3_9";
                 } else {
-                    ref = wiggleURL + "shimano-tiagra-4703-3x10sp-braze-on-front-mech";
+                    ref = "FDerailleur_3_10";
                 }
             }
         }
