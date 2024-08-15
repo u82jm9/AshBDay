@@ -111,7 +111,7 @@ public class OptionsService {
         wheelPreference.add("Cheap");
         wheelPreference.add("Expensive");
         o.setWheelPreference(wheelPreference);
-        if (b.getWheelPreference() == null) {
+        if (b.getWheelPreference() == null || b.getWheelPreference().isEmpty()) {
             o.setShowWheelPreference(true);
         }
     }
@@ -127,7 +127,7 @@ public class OptionsService {
                     rearGears.add(9L);
                     rearGears.add(10L);
                     rearGears.add(11L);
-//                    rearGears.add(12L);
+                    rearGears.add(12L);
                     frontGears.add(2L);
                 }
                 case TOUR -> {

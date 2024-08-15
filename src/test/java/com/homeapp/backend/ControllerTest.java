@@ -2,6 +2,7 @@ package com.homeapp.backend;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.homeapp.backend.controller.StickyNoteController;
+import com.homeapp.backend.models.DTOLog;
 import com.homeapp.backend.models.bike.Frame;
 import com.homeapp.backend.models.bike.FrontGears;
 import com.homeapp.backend.models.bike.FullBike;
@@ -137,8 +138,9 @@ public class ControllerTest {
      */
     @Test
     public void test_That_the_front_can_send_a_log() throws Exception {
-        this.mockMvc.perform(put(TEST_API_URL + "LogThis").session(session).contentType("application/json")
-                .content("TEST LOG!! TESTING LOGS")).andExpect(status().isCreated());
+        DTOLog log = new DTOLog("INFO", "TEST LOG!! TESTING LOGS", "today-date");
+        this.mockMvc.perform(post(TEST_API_URL + "LogThis").session(session).contentType("application/json")
+                .content(objectMapper.writeValueAsString(log))).andExpect(status().isCreated());
     }
 
     /**

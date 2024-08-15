@@ -245,7 +245,7 @@ public class FullBikeService {
             bike.setHandleBarType(NOT_SELECTED);
             bike.setNumberOfFrontGears(0);
             bike.setNumberOfRearGears(0);
-            bike.setWheelPreference("Cheap");
+            bike.setWheelPreference("");
             create(bike);
             return bike;
         }
