@@ -26,8 +26,8 @@ public class backend implements CommandLineRunner {
     private static final WarnLogger warnLogger = new WarnLogger();
     private static final ErrorLogger errorLogger = new ErrorLogger();
     private static final String today = LocalDate.now().toString();
-    private static String price;
-    private static String name;
+    private static String price = "";
+    private static String name = "";
 
     public static void main(String[] args) {
         checkAllLinks();
@@ -113,14 +113,14 @@ public class backend implements CommandLineRunner {
                     name = e.get().select("h1").first().text();
                     price = e.get().select("div.price").select("span.price").first().text();
                 }
-            } else if (part.getLink().contains("genesisbikes")) {
-                e = Optional.ofNullable(doc.select("div.product-info-main-header").get(0));
+            } else if (part.getLink().contains("evans")) {
+                e = Optional.ofNullable(doc.getElementById("productDetails"));
                 if (!e.isPresent()) {
                     problemParts.add(part);
                     return;
                 } else {
-                    name = e.get().select("h1.page-title").text();
-                    price = e.get().select("div.product-info-price > div.price-final_price").first().select("span").text();
+                    name = Objects.requireNonNull(e.get().getElementById("lblProductName")).text();
+                    price = Objects.requireNonNull(e.get().getElementById("lblSellingPrice")).text();
                 }
             } else if (part.getLink().contains("wiggle") || part.getLink().contains("chainreactioncycles")) {
                 e = Optional.ofNullable(doc.getElementById("productDetails"));
@@ -166,7 +166,7 @@ public class backend implements CommandLineRunner {
                 errorLogger.log("Trying to use unknown website");
                 problemParts.add(part);
             }
-            if (price != null) {
+            if (price != null || !price.equals("")) {
                 price = price.replaceAll("[^\\d.]", "");
                 price = price.split("\\.")[0] + "." + price.split("\\.")[1].substring(0, 2);
                 if (!price.contains(".")) {
