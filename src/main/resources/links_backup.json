@@ -34,17 +34,17 @@
   {
     "internalReference": "WheelFixieCheap",
     "component": "Wheels",
-    "name": "Aerorage Track 700c Wheels",
-    "price": "91.99",
-    "link": "https://www.halowheels.com/shop/wheels/aerorage-track-700c-wheels/",
+    "name": "Miche X-Press Road/Track Wheelset",
+    "price": "169.99",
+    "link": "https://www.dolan-bikes.com/miche-x-press-road-track-wheelset/",
     "dateLastUpdated": "2024-08-15"
   },
   {
     "internalReference": "WheelFixieExpensive",
     "component": "Wheels",
-    "name": "Evaura Track 700c Wheels",
-    "price": "160.00",
-    "link": "https://www.halowheels.com/shop/wheels/track/evaura-track/evaura-track-700c-wheels/",
+    "name": "Alpina A6T Carbon Tubular Track Wheelset (Pre Order Arriving Wk 2 October)",
+    "price": "724.99",
+    "link": "https://www.dolan-bikes.com/alpina-a6t-carbon-tubular-track-wheelset/",
     "dateLastUpdated": "2024-08-15"
   },
   {
@@ -144,7 +144,7 @@
     "dateLastUpdated": "2024-08-15"
   },
   {
-    "internalReference": "MehcanicalBrakeLever",
+    "internalReference": "MechanicalBrakeLever",
     "component": "Brake-Levers",
     "name": "FR5 Leaver Pair",
     "price": "15.00",

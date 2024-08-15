@@ -54,7 +54,7 @@ public class BikePartsTest {
             bike10.setWheelPreference("Expensive");
             fullBikeService.create(bike10);
             Frame frame = new Frame(GRAVEL, true, false, true);
-            FullBike bike = new FullBike("bike", frame, MECHANICAL_DISC, SHIMANO, DROPS, 1L, 11L, STI);
+            FullBike bike = new FullBike("bike", frame, MECHANICAL_DISC, SHIMANO, DROPS, 2L, 11L, STI);
             bike.setWheelPreference("Cheap");
             fullBikeService.create(bike);
             Frame frame1 = new Frame(ROAD, false, true, true);
@@ -86,7 +86,7 @@ public class BikePartsTest {
             bike7.setWheelPreference("Expensive");
             fullBikeService.create(bike7);
             Frame frame8 = new Frame(SINGLE_SPEED, true, false, false);
-            FullBike bike8 = new FullBike("bike8", frame8, MECHANICAL_DISC, SHIMANO, DROPS, 1L, 1L, NONE);
+            FullBike bike8 = new FullBike("bike8", frame8, RIM, SHIMANO, DROPS, 1L, 1L, NONE);
             bike8.setWheelPreference("Expensive");
             fullBikeService.create(bike8);
             isSetupDone = true;
@@ -272,12 +272,12 @@ public class BikePartsTest {
      * Test that the full price is cheaps.
      */
     @Test
-    public void test_That_The_Full_Price_is_Cheaps() {
+    public void test_That_The_Full_Price_is_Heaps() {
         FullBike bikeBefore = fullBikeService.getBikeUsingName("bike").get();
         fullBikeService.setBike(bikeBefore);
         BikeParts parts = bikePartsService.getBikePartsForBike();
         long bikePrice = parts.getTotalBikePrice().longValue();
-        assertTrue(bikePrice < 1500);
+        assertTrue(bikePrice > 1500);
     }
 
     /**
@@ -369,12 +369,12 @@ public class BikePartsTest {
      * Test that the full price is heaps 8.
      */
     @Test
-    public void test_That_The_Full_Price_is_Heaps8() {
+    public void test_That_The_Full_Price_is_Cheaps8() {
         FullBike bikeBefore = fullBikeService.getBikeUsingName("bike8").get();
         fullBikeService.setBike(bikeBefore);
         BikeParts parts = bikePartsService.getBikePartsForBike();
         long bikePrice = parts.getTotalBikePrice().longValue();
-        assertTrue(bikePrice > 1500);
+        assertTrue(bikePrice < 1500);
     }
 
     /**

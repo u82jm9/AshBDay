@@ -34,7 +34,6 @@ public class ShimanoGroupsetService {
     private final ErrorLogger errorLogger = new ErrorLogger();
     private final FullBikeService fullBikeService;
     private static final String LINKS_FILE = "src/main/resources/links.json";
-    private static String ref;
     private final ObjectMapper om;
 
     /**
@@ -84,6 +83,7 @@ public class ShimanoGroupsetService {
     }
 
     private void getBrakeLevers() {
+        String ref = "";
         String component = "Brake-Levers";
         infoLogger.log("Getting Parts for: " + component);
         bike = fullBikeService.getBike();
@@ -99,6 +99,7 @@ public class ShimanoGroupsetService {
     }
 
     private void getBrakeCalipers() {
+        String ref = "";
         String component = "Brake-Caliper";
         String method = "getBrakeCalipers";
         infoLogger.log("Getting Parts for: " + component);
@@ -110,7 +111,7 @@ public class ShimanoGroupsetService {
                 warnLogger.log("Not getting link for calipers as Hydraulic calipers and levers are together");
             }
         }
-        if (!ref.isEmpty()) {
+        if (ref != null || !ref.equals("")) {
             findPartFromInternalRef("Front-" + ref);
             findPartFromInternalRef("Rear-" + ref);
         } else {
@@ -170,6 +171,7 @@ public class ShimanoGroupsetService {
     }
 
     private void getHydraulicSTIShifters() {
+        String ref = "";
         String component = "Hydraulic-Shifter";
         String method = "getHydraulicSTIShifters";
         infoLogger.log("Getting Parts for: " + component);
@@ -206,14 +208,16 @@ public class ShimanoGroupsetService {
     }
 
     private void getLeverShifters() {
+        String ref = "";
         String component = "Trigger-Shifter";
         String method = "getLeverShifters";
         infoLogger.log("Getting Parts for: " + component);
         switch ((int) bike.getNumberOfRearGears()) {
+            case 8 -> ref = "TriggerShifter_8";
             case 9 -> ref = "TriggerShifter_9";
             case 10 -> ref = "TriggerShifter_10";
             case 11 -> ref = "TriggerShifter_11";
-            default -> ref = "TriggerShifter_8";
+            default -> ref = "";
         }
         if (!ref.isEmpty()) {
             findPartFromInternalRef(ref);
@@ -223,6 +227,7 @@ public class ShimanoGroupsetService {
     }
 
     private void getChainring() {
+        String ref = "";
         String component = "Chainring";
         String method = "getChainring";
         infoLogger.log("Getting Parts for: " + component);
@@ -273,6 +278,7 @@ public class ShimanoGroupsetService {
     }
 
     private void getCassette() {
+        String ref = "";
         String component = "Cassette";
         String method = "getCassette";
         infoLogger.log("Getting Parts for: " + component);
@@ -293,6 +299,7 @@ public class ShimanoGroupsetService {
     }
 
     private void getChain() {
+        String ref = "";
         String component = "Chain";
         String method = "getChain";
         infoLogger.log("Getting Parts for: " + component);
@@ -313,6 +320,7 @@ public class ShimanoGroupsetService {
     }
 
     private void getRearDerailleur() {
+        String ref = "";
         String component = "Rear-Derailleur";
         String method = "getRearDerailleur";
         infoLogger.log("Getting Parts for: " + component);
@@ -332,6 +340,7 @@ public class ShimanoGroupsetService {
     }
 
     private void getFrontDerailleur() {
+        String ref = "";
         String component = "Front-Derailleur";
         String method = "getFrontDerailleur";
         infoLogger.log("Getting Parts for: " + component);
@@ -384,6 +393,6 @@ public class ShimanoGroupsetService {
     private Optional<Part> retrievePartFromLinks(String ref) throws IOException {
         LinkedList<Part> parts = om.readValue(new File(LINKS_FILE), new TypeReference<>() {
         });
-        return parts.stream().filter(p -> p.getLink().equals(ref)).findFirst();
+        return parts.stream().filter(p -> p.getInternalReference().equals(ref)).findFirst();
     }
 }

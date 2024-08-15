@@ -158,8 +158,8 @@ public class BikePartsService {
                     ref = "FrameTourRim";
                 }
             }
-            case GRAVEL -> ref = "frameGravel";
-            case SINGLE_SPEED -> ref = "frameFixie";
+            case GRAVEL -> ref = "FrameGravel";
+            case SINGLE_SPEED -> ref = "FrameFixie";
         }
         shimanoGroupsetService.findPartFromInternalRef(ref);
     }
@@ -171,10 +171,12 @@ public class BikePartsService {
     private void calculateTotalPrice() {
         BigDecimal total = new BigDecimal(0);
         for (Part p : bikeParts.getListOfParts()) {
-            p.setPrice(p.getPrice().replace(",", ""));
-            BigDecimal bd = new BigDecimal(p.getPrice());
-            bd = bd.setScale(2, RoundingMode.CEILING);
-            total = total.add(bd);
+            if (p.getPrice() != null) {
+                p.setPrice(p.getPrice().replace(",", ""));
+                BigDecimal bd = new BigDecimal(p.getPrice());
+                bd = bd.setScale(2, RoundingMode.CEILING);
+                total = total.add(bd);
+            }
         }
         bikeParts.setTotalBikePrice(total);
         bikeParts.setTotalPriceAsString(NumberFormat.getCurrencyInstance(Locale.UK).format(total));

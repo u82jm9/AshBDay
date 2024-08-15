@@ -9,25 +9,22 @@
     "complete": false
   },
   {
-    "stickyNoteId": 5,
-    "title": "Paint!",
-    "messageMap": {
-      "Kitchen wall": true,
-      "Bedroom wall.": false,
-      "Window sill": true,
-      "All Window Sills": false
-    },
-    "complete": false
-  },
-  {
     "stickyNoteId": 2,
     "title": "Still to do...",
     "messageMap": {
       "Add Sram to Bike.": false,
       "Finish JSON append for creation and save of notes.": true,
-      "Review and clean up loggers.": true
+      "Review and clean up loggers.": false
     },
     "complete": false
+  },
+  {
+    "stickyNoteId": 3,
+    "title": "Nothing Useful",
+    "messageMap": {
+      "This is just to make an extra Sticky Note as I thought 5 would look better than 3!": true
+    },
+    "complete": true
   },
   {
     "stickyNoteId": 4,
@@ -41,5 +38,16 @@
       "Go to work.": false
     },
     "complete": true
+  },
+  {
+    "stickyNoteId": 5,
+    "title": "Paint!",
+    "messageMap": {
+      "Kitchen wall": true,
+      "Bedroom wall.": false,
+      "Window sill": false,
+      "All Window Sills": false
+    },
+    "complete": false
   }
 ]
