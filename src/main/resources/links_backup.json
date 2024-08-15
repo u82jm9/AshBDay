@@ -1,337 +1,618 @@
 [
   {
-    "link": "https://www.wiggle.com/mavic-allroad-disc-650b-wheelset-845223#colcode=84522303",
+    "internalReference": "WheelDiscCheap",
     "component": "Wheels",
-    "internalReference": "WheelDiscCheap"
+    "name": "Allroad Disc 650b Wheels",
+    "price": "135.00",
+    "link": "https://www.wiggle.com/mavic-allroad-disc-650b-wheels-845223#colcode=84522303",
+    "dateLastUpdated": "2024-08-15"
   },
   {
+    "internalReference": "WheelDiscExpensive",
+    "component": "Wheels",
+    "name": "RS4 DB Carbon Tubeless Wheels",
+    "price": "1799.99",
     "link": "https://www.wiggle.com/deda-rs4-db-carbon-tubeless-wheels-836218#colcode=83621890",
-    "component": "Wheels",
-    "internalReference": "WheelDiscExpensive"
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.wiggle.com/miche-altur-wheels-846217#colcode=84621703",
+    "internalReference": "WheelRimCheap",
     "component": "Wheels",
-    "internalReference": "WheelRimCheap"
+    "name": "Retro Black 700c Wheels",
+    "price": "389.99",
+    "link": "https://www.halowheels.com/shop/wheels/retro-black-700c-wheels/",
+    "dateLastUpdated": "2024-08-15"
   },
   {
+    "internalReference": "WheelRimExpensive",
+    "component": "Wheels",
+    "name": "Carbaura RC35 RS2 Supadrive Wheelset",
+    "price": "999.95",
+    "link": "https://www.halowheels.com/shop/wheels/road/carbaura/carbaura-rc35-rs2-supadrive-wheelset/",
+    "dateLastUpdated": "2024-08-15"
+  },
+  {
+    "internalReference": "WheelFixieCheap",
+    "component": "Wheels",
+    "name": "Aerorage Track 700c Wheels",
+    "price": "91.99",
     "link": "https://www.halowheels.com/shop/wheels/aerorage-track-700c-wheels/",
-    "component": "Wheels",
-    "internalReference": "WheelFixieCheap"
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.halowheels.com/shop/wheels/carbaura-crit-700c-wheelset/",
+    "internalReference": "WheelFixieExpensive",
     "component": "Wheels",
-    "internalReference": "WheelFixieExpensive"
+    "name": "Evaura Track 700c Wheels",
+    "price": "160.00",
+    "link": "https://www.halowheels.com/shop/wheels/track/evaura-track/evaura-track-700c-wheels/",
+    "dateLastUpdated": "2024-08-15"
   },
   {
+    "internalReference": "BarsDrop",
+    "component": "HandleBars",
+    "name": "Alloy Road Drop Bar Aero Top",
+    "price": "135.00",
     "link": "https://www.chainreactioncycles.com/thomson-alloy-road-drop-bar-aero-top-837837#colcode=83783703",
-    "component": "HandleBars",
-    "internalReference": "BarsDrop"
+    "dateLastUpdated": "2024-08-15"
   },
   {
+    "internalReference": "BarsBull",
+    "component": "HandleBars",
+    "name": "Crononero Low Rider Tri Bar",
+    "price": "57.99",
     "link": "https://www.wiggle.com/deda-crononero-low-rider-tri-bar-836815#colcode=83681503",
-    "component": "HandleBars",
-    "internalReference": "BarsBull"
+    "dateLastUpdated": "2024-08-15"
   },
   {
+    "internalReference": "BarsFlat",
+    "component": "HandleBars",
+    "name": "ODUB Handlebar 31.8mm Clamp",
+    "price": "75.00",
     "link": "https://www.chainreactioncycles.com/dmr-odub-handlebar-318mm-clamp-836711#colcode=83671103",
+    "dateLastUpdated": "2024-08-15"
+  },
+  {
+    "internalReference": "BarsFlare",
     "component": "HandleBars",
-    "internalReference": "BarsFlat"
+    "name": "Alloy Dirt Drop Drop Bar 25D Flare",
+    "price": "135.00",
+    "link": "https://www.chainreactioncycles.com/thomson-alloy-dirt-drop-drop-bar-25d-flare-837833#colcode=837833033",
+    "dateLastUpdated": "2024-08-15"
   },
   {
+    "internalReference": "FrameRoadRim",
+    "component": "Frame",
+    "name": "ADX Titanium Road Frameset",
+    "price": "1299.98",
     "link": "https://www.dolan-bikes.com/adx-titanium-road-frameset/",
-    "component": "Frame",
-    "internalReference": "FrameRoadRim"
+    "dateLastUpdated": "2024-08-15"
   },
   {
+    "internalReference": "FrameRoadDisc",
+    "component": "Frame",
+    "name": "Dolan ADX Disc Titanium Road Frameset",
+    "price": "1799.99",
     "link": "https://www.dolan-bikes.com/dolan-adx-disc-titanium-road-frameset/",
-    "component": "Frame",
-    "internalReference": "FrameRoadDisc"
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.genesisbikes.co.uk/genesis-fugio-frameset-vargn22330/",
+    "internalReference": "FrameTourDisc",
     "component": "Frame",
-    "internalReference": "FrameTourDisc"
+    "name": "Zydeco Disc Muddy Dry Frameset",
+    "price": "699.00",
+    "link": "https://www.evanscycles.com/cinelli-zydeco-disc-muddy-dry-frameset-845851",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.genesisbikes.co.uk/genesis-equilibrium-725-frameset-vargn21810",
+    "internalReference": "FrameRoadRim",
     "component": "Frame",
-    "internalReference": "FrameRoadRim"
+    "name": "Scalare Disc Grey Fade Frameset",
+    "price": "999.00",
+    "link": "https://www.evanscycles.com/tifosi-scalare-disc-grey-fade-frameset-836193",
+    "dateLastUpdated": "2024-08-15"
   },
   {
+    "internalReference": "FrameGravel",
+    "component": "Frame",
+    "name": "Dolan GXA Aluminium Gravel Frameset",
+    "price": "599.99",
     "link": "https://www.dolan-bikes.com/dolan-gxa2020-aluminium-gravel-frameset/",
-    "component": "Frame",
-    "internalReference": "FrameGravel"
+    "dateLastUpdated": "2024-08-15"
   },
   {
+    "internalReference": "FrameFixie",
+    "component": "Frame",
+    "name": "Dolan Pre Cursa Aluminium Frameset",
+    "price": "349.99",
     "link": "https://www.dolan-bikes.com/dolan-pre-cursa-aluminium-frameset/",
-    "component": "Frame",
-    "internalReference": "FrameFixie"
+    "dateLastUpdated": "2024-08-15"
   },
   {
+    "internalReference": "Left-HydraulicBrakeLever",
+    "component": "Left-Brake-Lever",
+    "name": "M6100 Brake 2-piston",
+    "price": "94.99",
     "link": "https://www.wiggle.com/shimano-m6100-brake-2-piston-704288#colcode=70428803",
-    "component": "Left-Brake",
-    "internalReference": "Left-HydraulicBrakeLever"
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.wiggle.com/shimano-m6100-brake-2-piston-704288#colcode=70428803",
+    "internalReference": "Right-HydraulicBrakeLever",
     "component": "Right-Brake-Lever",
-    "internalReference": "Right-HydraulicBrakeLever"
+    "name": "M6100 Brake 2-piston",
+    "price": "94.99",
+    "link": "https://www.wiggle.com/shimano-m6100-brake-2-piston-704288#colcode=70428803",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.wiggle.com/shimano-deore-t610-v-brake-levers-930835#colcode=93083503",
-    "component": "Brake-Lever",
-    "internalReference": "MechanicDiscBrakeLever"
+    "internalReference": "MehcanicalBrakeLever",
+    "component": "Brake-Levers",
+    "name": "FR5 Leaver Pair",
+    "price": "15.00",
+    "link": "https://www.wiggle.com/sram-fr5-leaver-pair-714897#colcode=71489703",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.wiggle.com/shimano-tiagra-r451-dual-pivot-brake-caliper-930477#colcode=93047703",
-    "component": "Brake-Caliper",
-    "internalReference": "RimBrake_9"
-  },
-  {
-    "link": "https://www.wiggle.com/shimano-105-r7000-road-brake-caliper-932489#colcode=93248903",
-    "component": "Brake-Caliper",
-    "internalReference": "RimBrake_10"
-  },
-  {
-    "link": "https://www.wiggle.com/shimano-br-r317-rear-road-disc-brake-caliper-930854#colcode=93085403",
-    "component": "Brake-Caliper",
-    "internalReference": "MechanicalBrakeCaliper_9"
-  },
-  {
+    "internalReference": "Front-MechanicalBrakeCaliper",
+    "component": "Front-Brake-Caliper",
+    "name": "Spyre Post Mount Caliper",
+    "price": "70.00",
     "link": "https://www.chainreactioncycles.com/trp-spyre-post-mount-caliper-837329#colcode=83732903",
-    "component": "Brake-Caliper",
-    "internalReference": "MechanicalBrakeCaliper"
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.chainreactioncycles.com/p/microshift-advent-m090-1x9-speed-gear-brake-levers",
+    "internalReference": "Front-RimBrakeCaliper",
+    "component": "Front-Brake-Caliper",
+    "name": "105 R7000 Road Brake Caliper",
+    "price": "38.00",
+    "link": "https://www.wiggle.com/shimano-105-r7000-road-brake-caliper-932489#colcode=93248903",
+    "dateLastUpdated": "2024-08-15"
+  },
+  {
+    "internalReference": "Rear-MechanicalBrakeCaliper",
+    "component": "Rear-Brake-Caliper",
+    "name": "Spyre Post Mount Caliper",
+    "price": "70.00",
+    "link": "https://www.chainreactioncycles.com/trp-spyre-post-mount-caliper-837329#colcode=83732903",
+    "dateLastUpdated": "2024-08-15"
+  },
+  {
+    "internalReference": "Rear-RimBrakeCaliper",
+    "component": "Rear-Brake-Caliper",
+    "name": "105 R7000 Road Brake Caliper",
+    "price": "38.00",
+    "link": "https://www.wiggle.com/shimano-105-r7000-road-brake-caliper-932489#colcode=93248903",
+    "dateLastUpdated": "2024-08-15"
+  },
+  {
+    "internalReference": "MechanicalSTI_1_11",
     "component": "STI-Shifter",
-    "internalReference": "MechanicalSTI_1_9"
-  },
-  {
-    "link": "https://www.chainreactioncycles.com/p/shimano-tiagra-4700-sti-shifter-set-2x10",
-    "component": "STI-Shifter",
-    "internalReference": "MechanicalSTI_1_10"
-  },
-  {
+    "name": null,
+    "price": null,
     "link": "https://www.wiggle.com/p/shimano-105-r7000-11-speed-levers",
-    "component": "STI-Shifter",
-    "internalReference": "MechanicalSTI_1_11"
+    "dateLastUpdated": null
   },
   {
-    "link": "https://www.wiggle.com/p/shimano-ultegra-r8150-di2-12-speed-shifter-set",
+    "internalReference": "MechanicalSTI_1_12",
     "component": "STI-Shifter",
-    "internalReference": "MechanicalSTI_1_12"
+    "name": "105 R7000 Road Brake Caliper",
+    "price": "38.00",
+    "link": "https://www.google.co.uk",
+    "dateLastUpdated": "2024-08-15"
   },
   {
+    "internalReference": "MechanicalSTI_2_9",
+    "component": "STI-Shifter",
+    "name": "Sora R3000 STI Mechanical 9-Speed Shifter - For Double",
+    "price": "109.00",
     "link": "https://www.chainreactioncycles.com/shimano-sora-r3000-sti-mechanical-9-speed-shifter---for-double-912434#colcode=91243403",
-    "component": "STI-Shifter",
-    "internalReference": "MechanicalSTI_2_9"
+    "dateLastUpdated": "2024-08-15"
   },
   {
+    "internalReference": "MechanicalSTI_2_10",
+    "component": "STI-Shifter",
+    "name": "Tiagra 4700 Double STI Shifter",
+    "price": "229.99",
     "link": "https://www.wiggle.com/shimano-tiagra-4700-double-sti-shifter-911771#colcode=91177103",
-    "component": "STI-Shifter",
-    "internalReference": "MechanicalSTI_2_10"
+    "dateLastUpdated": "2024-08-15"
   },
   {
+    "internalReference": "MechanicalSTI_2_11",
+    "component": "STI-Shifter",
+    "name": "105 R7000 Mechanical Shifters -Pair",
+    "price": "199.99",
     "link": "https://www.chainreactioncycles.com/shimano-105-r7000-mechanical-shifters--pair-913387#colcode=91338703",
-    "component": "STI-Shifter",
-    "internalReference": "MechanicalSTI_2_11"
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.chainreactioncycles.com/p/microshift-r9-3x9-speed-dual-control-levers",
+    "internalReference": "Right-HydraulicSTI_9",
     "component": "STI-Shifter",
-    "internalReference": "MechanicalSTI_3_9"
+    "name": "105 R7000 Mechanical Shifters -Pair",
+    "price": "199.99",
+    "link": "https://www.google.co.uk",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.wiggle.com/p/shimano-tiagra-4700-3x10-speed-lever-set",
+    "internalReference": "Right-HydraulicSTI_10",
     "component": "STI-Shifter",
-    "internalReference": "MechanicalSTI_3_10"
+    "name": "GRX RX400 10 Speed STI Hydraulic Lever - Mechanical Shift",
+    "price": "134.99",
+    "link": "https://www.chainreactioncycles.com/shimano-grx-rx400-10-speed-sti-hydraulic-lever---mechanical-shift-915495#colcode=91549502",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.chainreactioncycles.com/p/shimano-tiagra-4725-2x10-speed-road-disc-brake",
+    "internalReference": "Right-HydraulicSTI_11",
     "component": "STI-Shifter",
-    "internalReference": "HydraulicSTI_10"
+    "name": "Shimano 105 ST-R7025 11x STI Disc Right Front BLK",
+    "price": "199.99",
+    "link": "https://www.sjscycles.co.uk/gear-shifters/shimano-105-str7025-11-speed-hydraulic-disc-sti-set-flat-mount-caliper-right-front-black/",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.chainreactioncycles.com/p/shimano-105-r7025-hydraulic-disc-brake",
+    "internalReference": "Right-HydraulicSTI_12",
     "component": "STI-Shifter",
-    "internalReference": "HydraulicSTI_11"
+    "name": "Shimano Ultegra Di2 ST-R8170 Hydraulic Disc Lever",
+    "price": "349.99",
+    "link": "https://www.sjscycles.co.uk/gear-shifters/shimano-ultegra-di2-str8170-12-speed-hydraulic-disc-sti-lever-wo-etube-wires-right-hand/",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.wiggle.com/p/shimano-105-r7170-di2-hydraulic-disc-brake",
+    "internalReference": "Left-HydraulicSTI_1",
     "component": "STI-Shifter",
-    "internalReference": "HydraulicSTI_12"
+    "name": "Shimano Ultegra Di2 ST-R8170 Hydraulic Disc Lever",
+    "price": "349.99",
+    "link": "https://www.google.co.uk",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.wiggle.com/p/clarks-m2-hydraulic-disc-brake-with-rotor",
+    "internalReference": "Left-HydraulicSTI_2",
     "component": "STI-Shifter",
-    "internalReference": "HydraulicSTI"
+    "name": "Shimano 105 ST-R7120 12 Speed STI Brake Lever",
+    "price": "229.99",
+    "link": "https://www.sjscycles.co.uk/gear-shifters/shimano-105-str7120-double-hydraulic-disc-sti-set-flat-mount-caliper-right-front-black/",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.chainreactioncycles.com/p/shimano-grx-820-hydraulic-drop-bar-brake-lever",
+    "internalReference": "Left-HydraulicSTI_3",
     "component": "STI-Shifter",
-    "internalReference": "HydraulicSTI_1"
+    "name": "Shimano 105 ST-R7120 12 Speed STI Brake Lever",
+    "price": "229.99",
+    "link": "https://www.google.co.uk",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.chainreactioncycles.com/p/shimano-altus-m2010-9-speed-shifter",
+    "internalReference": "TriggerShifter_2",
     "component": "Trigger-Shifter",
-    "internalReference": "TriggerShifter_9"
+    "name": "Shimano Deore SL-M5100 2 Speed Shifter, I-Spec EV, Left Hand 794238",
+    "price": "22.52",
+    "link": "https://www.halfords.com/cycling/bike-parts/gears-drivetrain-and-cables/shimano-deore-sl-m5100-2-speed-shifter-i-spec-ev-left-hand-794238.html?stockInventory=undefined",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.wiggle.com/p/shimano-deore-m6000-10-speed-trigger-shifter",
+    "internalReference": "TriggerShifter_3",
     "component": "Trigger-Shifter",
-    "internalReference": "TriggerShifter_10"
+    "name": "Shimano Deore SL-M6000 2/3 Speed I-Spec-II Shifter",
+    "price": "29.99",
+    "link": "https://www.sjscycles.co.uk/gear-shifters/shimano-deore-slm6000i-2-3-speed-ispec-ii-rapidfire-shift-lever-left-hand/",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.wiggle.com/p/shimano-xt-m8000-11-speed-trigger-shifter",
+    "internalReference": "TriggerShifter_8",
     "component": "Trigger-Shifter",
-    "internalReference": "TriggerShifter_11"
+    "name": "Shimano Claris SL-R2030 8 Speed Rapidfire Shifters",
+    "price": "52.99",
+    "link": "https://www.sjscycles.co.uk/gear-shifters/shimano-claris-slr2030-8-speed-rapidfire-shift-levers-for-flat-bar-triple/",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.chainreactioncycles.com/p/shimano-m5100-deore-10-11-speed-single-chainset",
+    "internalReference": "TriggerShifter_9",
+    "component": "Trigger-Shifter",
+    "name": "Shimano Sora SL-R3000 9 Speed Shift Levers",
+    "price": "107.99",
+    "link": "https://www.sjscycles.co.uk/gear-shifters/shimano-sora-slr3000-9-speed-shift-levers-for-flat-bar-double/",
+    "dateLastUpdated": "2024-08-15"
+  },
+  {
+    "internalReference": "TriggerShifter_10",
+    "component": "Trigger-Shifter",
+    "name": "Shimano Tiagra SL-4700 10 Speed Rapidfire Levers",
+    "price": "109.99",
+    "link": "https://www.sjscycles.co.uk/gear-shifters/shimano-tiagra-sl4700-10-speed-rapidfire-shift-levers-for-flat-bars-double/",
+    "dateLastUpdated": "2024-08-15"
+  },
+  {
+    "internalReference": "TriggerShifter_11",
+    "component": "Trigger-Shifter",
+    "name": "Shimano Deore XT SL-M8000 11 I-Spec-B Shifter",
+    "price": "59.99",
+    "link": "https://www.sjscycles.co.uk/gear-shifters/shimano-deore-xt-slm8000-11-speed-ispecb-direct-attach-rapidfire-pod-right-hand/",
+    "dateLastUpdated": "2024-08-15"
+  },
+  {
+    "internalReference": "ChainSet_3",
     "component": "Chainset",
-    "internalReference": "ChainSet_1_10"
+    "name": "Shimano Claris FC-R2030 8 Speed Triple Chainset",
+    "price": "64.99",
+    "link": "https://www.sjscycles.co.uk/chainsets/170-shimano-claris-fcr2030-8-speed-triple-chainset-503930t/",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.chainreactioncycles.com/p/shimano-m6100-deore-12-speed-mtb-single-chainset",
+    "internalReference": "ChainSet_3_9",
     "component": "Chainset",
-    "internalReference": "ChainSet_1_12"
+    "name": "Shimano Sora FC-R3030 9 Speed Triple Chainset",
+    "price": "114.99",
+    "link": "https://www.sjscycles.co.uk/chainsets/165-shimano-sora-fcr3030-9-speed-hollowtech-ii-triple-chainset-503930t/",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.wiggle.com/p/miche-primato-advanced-track-single-chainset",
+    "internalReference": "ChainSet_3_10",
     "component": "Chainset",
-    "internalReference": "ChainSet_1"
+    "name": "Shimano Tiagra FC-4703 10 Speed Triple Chainset",
+    "price": "124.99",
+    "link": "https://www.sjscycles.co.uk/chainsets/shimano-tiagra-fc4703-10-speed-triple-chainset-503930t-170mm/",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.chainreactioncycles.com/p/shimano-claris-r2000-8-speed-double-chainset",
+    "internalReference": "ChainSet_2_8",
     "component": "Chainset",
-    "internalReference": "ChainSet_2_8"
+    "name": "Shimano Claris FC-R2000 8 Speed Compact Double",
+    "price": "89.99",
+    "link": "https://www.sjscycles.co.uk/chainsets/170-shimano-claris-fcr2000-8-speed-compact-double-chainset-5034t/",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.chainreactioncycles.com/p/shimano-tiagra-4700-10-speed-chainset",
+    "internalReference": "ChainSet_2_9",
     "component": "Chainset",
-    "internalReference": "ChainSet_2_10"
+    "name": "Shimano Sora FC-R3000 9 Speed Double Chainset",
+    "price": "104.99",
+    "link": "https://www.sjscycles.co.uk/chainsets/165-shimano-sora-fcr3000-9-speed-hollowtech-ii-compact-double-chainset-5034t/",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.chainreactioncycles.com/p/shimano-105-r7000-11-speed-road-double-chainset",
+    "internalReference": "ChainSet_2_10",
     "component": "Chainset",
-    "internalReference": "ChainSet_2_11"
+    "name": "Shimano Tiagra FC-4700 10 Spd Chainset 48/34T 170",
+    "price": "119.99",
+    "link": "https://www.sjscycles.co.uk/chainsets/shimano-tiagra-fc4700-10-speed-compact-double-chainset-4834t-170mm/",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.chainreactioncycles.com/p/shimano-105-r7100-12-speed-double-chainset",
+    "internalReference": "ChainSet_2_11",
     "component": "Chainset",
-    "internalReference": "ChainSet_2_12"
+    "name": "Shimano 105 FC-R7000 11 Speed Chainset",
+    "price": "159.99",
+    "link": "https://www.sjscycles.co.uk/chainsets/165-shimano-105-fcr7000-11-speed-double-chainset-black-5034t/",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.wiggle.com/p/shimano-sora-r3030-9-speed-triple-chainset",
+    "internalReference": "ChainSet_2_12",
     "component": "Chainset",
-    "internalReference": "ChainSet_3_9"
+    "name": "Shimano Ultegra FC-R8100 12 Speed Double Chainset",
+    "price": "249.99",
+    "link": "https://www.sjscycles.co.uk/chainsets/shimano-ultegra-fcr8100-12-speed-double-chainset-grey-5034t-170mm/",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.chainreactioncycles.com/p/shimano-tiagra-4703-10sp-road-triple-chainset",
+    "internalReference": "ChainSet_1",
     "component": "Chainset",
-    "internalReference": "ChainSet_3_10"
+    "name": "Sturmey Archer FCT28 Single Chainset",
+    "price": "59.99",
+    "link": "https://www.sjscycles.co.uk/chainsets/black-sturmey-archer-fct28-single-chainset-48t-with-170-mm-cranks/",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.wiggle.com/p/shimano-dx-single-speed-sprocket",
+    "internalReference": "ChainSet_1_11",
+    "component": "Chainset",
+    "name": "Shimano GRX FC-RX810 11 Speed Single Chainset",
+    "price": "164.99",
+    "link": "https://www.sjscycles.co.uk/chainsets/shimano-grx-fcrx8101-11-speed-single-chainset-42t-170mm/",
+    "dateLastUpdated": "2024-08-15"
+  },
+  {
+    "internalReference": "ChainSet_1_12",
+    "component": "Chainset",
+    "name": "Shimano GRX FC-RX820 12 Speed Single Chainset",
+    "price": "199.99",
+    "link": "https://www.sjscycles.co.uk/chainsets/shimano-grx-fcrx820-12-speed-single-chainset-42t-170mm/",
+    "dateLastUpdated": "2024-08-15"
+  },
+  {
+    "internalReference": "Cassette_1",
     "component": "Cassette",
-    "internalReference": "Cassette_1"
+    "name": "Soma Track Cog 3/32 Inch Black",
+    "price": "25.99",
+    "link": "https://www.sjscycles.co.uk/sprockets/13t-soma-track-cog-332-inch-black/",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.wiggle.com/p/shimano-sora-hg400-9-speed-cassette",
+    "internalReference": "Cassette_8",
     "component": "Cassette",
-    "internalReference": "Cassette_9"
+    "name": "13-26 Shimano HG50 8 speed hyperglide cassette",
+    "price": "34.99",
+    "link": "https://www.sjscycles.co.uk/cassettes/shimano-cshg50-8-speed-cassette-1326t/",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.chainreactioncycles.com/p/shimano-tiagra-hg500-10-speed-road-cassette-5360107149",
+    "internalReference": "Cassette_9",
     "component": "Cassette",
-    "internalReference": "Cassette_10"
+    "name": "ZTTO 9 Speed Cassette - Shimano Compatible - 11-40T | Cassettes - 9 Speed | SJS Cycles",
+    "price": "39.99",
+    "link": "https://www.sjscycles.co.uk/cassettes/ztto-9-speed-cassette-shimano-compatible-1140t/",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.chainreactioncycles.com/p/shimano-105-r7000-11-speed-cassette",
+    "internalReference": "Cassette_10",
     "component": "Cassette",
-    "internalReference": "Cassette_11"
+    "name": "Shimano 105 CS-5700 10 Speed Cassette",
+    "price": "52.99",
+    "link": "https://www.sjscycles.co.uk/cassettes/1125-shimano-105-cs5700-10-speed-cassette/",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.chainreactioncycles.com/p/shimano-105-r7100-12-speed-cassette",
+    "internalReference": "Cassette_11",
     "component": "Cassette",
-    "internalReference": "Cassette_12"
+    "name": "Shimano 105 CS-R7000 11 Speed Cassette",
+    "price": "54.99",
+    "link": "https://www.sjscycles.co.uk/cassettes/1128-shimano-105-csr7000-11-speed-cassette/",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.wiggle.com/p/shimano-xt-hg93-9-speed-chain",
+    "internalReference": "Cassette_12",
+    "component": "Cassette",
+    "name": "Shimano Ultegra CS-R8100 12 Speed Cassette",
+    "price": "119.99",
+    "link": "https://www.sjscycles.co.uk/cassettes/shimano-ultegra-csr8100-12-speed-cassette-1134t/",
+    "dateLastUpdated": "2024-08-15"
+  },
+  {
+    "internalReference": "Chain_1",
     "component": "Chain",
-    "internalReference": "Chain_9"
+    "name": "KMC e1 EPT Chain 110 Link",
+    "price": "26.99",
+    "link": "https://www.sjscycles.co.uk/chains/kmc-e1-332-inch-chain-ept-110-links/",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.wiggle.com/p/shimano-hg95-10-speed-chain",
+    "internalReference": "Chain_8",
     "component": "Chain",
-    "internalReference": "Chain_10"
+    "name": "HG40 6-8 Speed Chain",
+    "price": "14.99",
+    "link": "https://www.evanscycles.com/brand/shimano/hg40-6-8-speed-chain-968303#colcode=96830301",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.wiggle.com/p/shimano-hg601q-105-5800-11-speed-chain",
+    "internalReference": "Chain_9",
     "component": "Chain",
-    "internalReference": "Chain_11"
+    "name": "Tiagra HG53 Chain - 9 Speed",
+    "price": "19.00",
+    "link": "https://www.evanscycles.com/brand/shimano/tiagra-hg53-chain---9-speed-968306#colcode=96830601",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.wiggle.com/p/shimano-slx-m7100-12-speed-chain",
+    "internalReference": "Chain_10",
     "component": "Chain",
-    "internalReference": "Chain_12"
+    "name": "Tiagra 4601 10 Speed Chain",
+    "price": "27.99",
+    "link": "https://www.evanscycles.com/brand/shimano/tiagra-4601-10-speed-chain-911016#colcode=91101601",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.chainreactioncycles.com/p/shimano-nexus-single-speed-chain",
+    "internalReference": "Chain_11",
     "component": "Chain",
-    "internalReference": "Chain_1"
+    "name": "HG601 105 5800 / SLX M7000 11 Speed Chain With Quicklink",
+    "price": "34.99",
+    "link": "https://www.evanscycles.com/brand/shimano/hg601-105-5800-/-slx-m7000-11-speed-chain-with-quicklink-913337#colcode=91333711",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.wiggle.com/p/shimano-sora-r3000-9-speed-rear-derailleur",
+    "internalReference": "Chain_12",
+    "component": "Chain",
+    "name": "M7100 SLX/Road 12-Speed Chain",
+    "price": "34.99",
+    "link": "https://www.evanscycles.com/brand/shimano/m7100-slx/road-12-speed-chain-714440#colcode=71444003",
+    "dateLastUpdated": "2024-08-15"
+  },
+  {
+    "internalReference": "RDerailleur_8",
     "component": "Rear-Derailleur",
-    "internalReference": "RDerailleur_9"
+    "name": "Shimano Claris RD-R2000 8 Spd Rear Mech Silver GS",
+    "price": "36.99",
+    "link": "https://www.sjscycles.co.uk/derailleurs-rear/shimano-claris-rdr2000-8-speed-rear-derailleur-silver-gs-cage/",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.wiggle.com/p/shimano-tiagra-4700-10-speed-rear-derailleur-gs",
+    "internalReference": "RDerailleur_9",
     "component": "Rear-Derailleur",
-    "internalReference": "RDerailleur_10"
+    "name": "Shimano Sora RD-R3000 9 Speed Rear Derailleur",
+    "price": "42.99",
+    "link": "https://www.sjscycles.co.uk/derailleurs-rear/shimano-sora-rdr3000-9-speed-rear-derailleur-gs-type/",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.chainreactioncycles.com/p/shimano-105-r7000-11-speed-rear-derailleur",
+    "internalReference": "RDerailleur_10",
     "component": "Rear-Derailleur",
-    "internalReference": "RDerailleur_11"
+    "name": "Shimano Tiagra RD-4700 10 Speed Rear Derailleur",
+    "price": "44.99",
+    "link": "https://www.sjscycles.co.uk/derailleurs-rear/shimano-tiagra-rd4700-10-speed-rear-derailleur-gs-type/",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.chainreactioncycles.com/p/shimano-ultegra-r8150-di2-12-speed-rear-derailleur",
+    "internalReference": "RDerailleur_11",
     "component": "Rear-Derailleur",
-    "internalReference": "RDerailleur_12"
+    "name": "Shimano 105 RD-R7000 11 Speed Rear Mech Black GS",
+    "price": "59.99",
+    "link": "https://www.sjscycles.co.uk/derailleurs-rear/shimano-105-rdr7000-11-speed-rear-derailleur-black-gs-medium-cage/",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.wiggle.com/p/shimano-sora-r3000-9-speed-double-front-derailleur",
-    "component": "Front-Derailleur",
-    "internalReference": "FDerailleur_2_9"
+    "internalReference": "RDerailleur_12",
+    "component": "Rear-Derailleur",
+    "name": "Shimano Ultegra Di2 RD-R8150 12 Speed Derailleur",
+    "price": "319.99",
+    "link": "https://www.sjscycles.co.uk/derailleurs-rear/shimano-ultegra-di2-rdr8150-12-speed-etube-rear-derailleur/",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.wiggle.com/p/shimano-tiagra-fd4700-10-speed-front-derailleur",
+    "internalReference": "FDerailleur_1",
     "component": "Front-Derailleur",
-    "internalReference": "FDerailleur_2_10"
+    "name": "Shimano XTR FD-M9025 Chain Catcher & Fixing Bolt",
+    "price": "4.99",
+    "link": "https://www.sjscycles.co.uk/gear-spares/shimano-xtr-fdm9025-chain-catcher-fixing-bolt-m4-x-5mm-y5rc98020/",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.wiggle.com/p/shimano-105-r7000-11-speed-front-derailleur",
+    "internalReference": "FDerailleur_2_8",
     "component": "Front-Derailleur",
-    "internalReference": "FDerailleur_2_11"
+    "name": "Claris R2000 Double 8 Speed Band Clamp Front Derailleur",
+    "price": "24.99",
+    "link": "https://www.chainreactioncycles.com/shimano-claris-r2000-double-8-speed-band-clamp-front-derailleur-912835#colcode=91283502",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.wiggle.com/p/shimano-105-r7150-di2-e-tube-front-derailleur",
+    "internalReference": "FDerailleur_2_9",
     "component": "Front-Derailleur",
-    "internalReference": "FDerailleur_2_12"
+    "name": "Shimano Sora FD-R3000 Double Front Derailleur",
+    "price": "32.99",
+    "link": "https://www.sjscycles.co.uk/derailleurs-front/shimano-sora-fdr3000-9-spd-double-front-derailleur-286-318-349mm/",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.wiggle.com/p/shimano-sora-r3030-9-speed-triple-front-derailleur",
+    "internalReference": "FDerailleur_2_10",
     "component": "Front-Derailleur",
-    "internalReference": "FDerailleur_3_9"
+    "name": "Shimano Tiagra FD-4700 10 Spd Front Mech 28.6/31.8",
+    "price": "36.99",
+    "link": "https://www.sjscycles.co.uk/derailleurs-front/shimano-tiagra-fd4700-10-spd-double-front-derailleur-286-318mm/",
+    "dateLastUpdated": "2024-08-15"
   },
   {
-    "link": "https://www.wiggle.com/p/shimano-tiagra-4703-3x10sp-braze-on-front-mech",
+    "internalReference": "FDerailleur_2_11",
     "component": "Front-Derailleur",
-    "internalReference": "FDerailleur_3_10"
+    "name": "Shimano 105 FD-R7000 11Spd Front Derailleur",
+    "price": "44.99",
+    "link": "https://www.sjscycles.co.uk/derailleurs-front/shimano-105-fdr7000-11-speed-double-front-derailleur-black-286-318mm/",
+    "dateLastUpdated": "2024-08-15"
+  },
+  {
+    "internalReference": "FDerailleur_2_12",
+    "component": "Front-Derailleur",
+    "name": "Shimano Ultegra Di2 FD-R8150 Front Derailleur",
+    "price": "199.99",
+    "link": "https://www.sjscycles.co.uk/derailleurs-front/shimano-ultegra-di2-fdr8150-12-speed-etube-double-front-derailleur-braze-on/",
+    "dateLastUpdated": "2024-08-15"
+  },
+  {
+    "internalReference": "FDerailleur_3_9",
+    "component": "Front-Derailleur",
+    "name": "Shimano Sora FD-R3030 Triple Front Derailleur",
+    "price": "34.99",
+    "link": "https://www.sjscycles.co.uk/derailleurs-front/shimano-sora-fdr3030-9-spd-triple-front-derailleur-286-318-349mm/",
+    "dateLastUpdated": "2024-08-15"
+  },
+  {
+    "internalReference": "FDerailleur_3_10",
+    "component": "Front-Derailleur",
+    "name": "Shimano Tiagra FD-4703 10 Spd Front Mech 28.6/31.8",
+    "price": "36.99",
+    "link": "https://www.sjscycles.co.uk/derailleurs-front/shimano-tiagra-fd4703-10-spd-triple-front-derailleur-286-318mm/",
+    "dateLastUpdated": "2024-08-15"
   }
 ]
