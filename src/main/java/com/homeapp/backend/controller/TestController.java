@@ -1,6 +1,8 @@
 package com.homeapp.backend.controller;
 
+import com.homeapp.backend.models.DTOJoke;
 import com.homeapp.backend.models.DTOLog;
+import com.homeapp.backend.models.SaveJoke;
 import com.homeapp.backend.models.logger.ErrorLoggerFE;
 import com.homeapp.backend.models.logger.InfoLoggerFE;
 import com.homeapp.backend.models.logger.WarnLoggerFE;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("Test/")
 @CrossOrigin(origins = "http://localhost:3000")
 public class TestController {
+    private final SaveJoke saveJoke = new SaveJoke();
     private final InfoLoggerFE infoLogger = new InfoLoggerFE();
     private final WarnLoggerFE warnLogger = new WarnLoggerFE();
     private final ErrorLoggerFE errorLogger = new ErrorLoggerFE();
@@ -53,6 +56,12 @@ public class TestController {
             case "INFO" -> infoLogger.log(dtoLog.getMessage());
             default -> errorLogger.log(dtoLog.getMessage());
         }
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @PostMapping("SaveThis")
+    public ResponseEntity<HttpStatus> saveThis(@RequestBody DTOJoke joke) {
+        saveJoke.save(joke);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }

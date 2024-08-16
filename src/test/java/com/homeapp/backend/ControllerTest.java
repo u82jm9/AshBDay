@@ -2,6 +2,7 @@ package com.homeapp.backend;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.homeapp.backend.controller.StickyNoteController;
+import com.homeapp.backend.models.DTOJoke;
 import com.homeapp.backend.models.DTOLog;
 import com.homeapp.backend.models.bike.Frame;
 import com.homeapp.backend.models.bike.FrontGears;
@@ -129,6 +130,33 @@ public class ControllerTest {
     public void test_That_Options_is_returned_with_Brands() throws Exception {
         this.mockMvc.perform(get(OPTIONS_URL + "StartNewBike"))
                 .andExpect(status().isOk());
+    }
+
+    /**
+     * Test that the front can send a joke back with null setup and punchline.
+     *
+     * @throws Exception the exception
+     */
+    @Test
+    public void test_That_the_FE_can_send_a_Joke_no_body_only() throws Exception {
+        DTOJoke joke = new DTOJoke();
+        joke.setSetup("Test Joke Setup");
+        joke.setPunchline("Some witty punchline");
+        this.mockMvc.perform(post(TEST_API_URL + "SaveThis").session(session).contentType("application/json")
+                .content(objectMapper.writeValueAsString(joke))).andExpect(status().isCreated());
+    }
+
+    /**
+     * Test that the front can send a joke back with null setup and punchline.
+     *
+     * @throws Exception the exception
+     */
+    @Test
+    public void test_That_the_FE_can_send_a_Joke_body_only() throws Exception {
+        DTOJoke joke = new DTOJoke();
+        joke.setBody("Test Joke Body");
+        this.mockMvc.perform(post(TEST_API_URL + "SaveThis").session(session).contentType("application/json")
+                .content(objectMapper.writeValueAsString(joke))).andExpect(status().isCreated());
     }
 
     /**

@@ -1,0 +1,22 @@
+[
+  {
+    "setup": "Test Joke Setup",
+    "punchline": "Some witty punchline",
+    "body": ""
+  },
+  {
+    "setup": "",
+    "punchline": "",
+    "body": "Test Joke Body"
+  },
+  {
+    "setup": "Test Joke Setup",
+    "punchline": "Some witty punchline",
+    "body": ""
+  },
+  {
+    "setup": "My dad had this strange obsession with collecting bottles!",
+    "punchline": "Would be one way to say he’s an alcoholic.",
+    "body": ""
+  }
+]
