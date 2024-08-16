@@ -11,6 +11,7 @@ import com.homeapp.backend.models.bike.RearGears;
 import com.homeapp.backend.models.note.DTOnote;
 import com.homeapp.backend.models.note.StickyNote;
 import com.homeapp.backend.services.FullBikeService;
+import com.homeapp.backend.services.SaveJokeService;
 import com.homeapp.backend.services.StickyNoteService;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,6 +71,8 @@ public class ControllerTest {
     private FullBikeService fullBikeService;
     @Autowired
     private StickyNoteService stickyNoteService;
+    @Autowired
+    private SaveJokeService saveJokeService;
     private MockMvc mockMvc;
     private MockHttpSession session;
 
@@ -81,6 +84,7 @@ public class ControllerTest {
     @BeforeEach
     public void setup() {
         if (!isSetupDone) {
+            saveJokeService.deleteAllJokes();
             fullBikeService.deleteAllBikes();
             Frame frame = new Frame(GRAVEL, true, false, true);
             FullBike bike = new FullBike("bike", frame, MECHANICAL_DISC, SHIMANO, DROPS, 1L, 11L, STI);
@@ -118,6 +122,7 @@ public class ControllerTest {
     public void clearup() {
         fullBikeService.reloadBikesFromBackup();
         stickyNoteService.reloadNotesFromBackup();
+        saveJokeService.reloadJokesFromBackup();
     }
 
 
