@@ -167,11 +167,14 @@ public class backend implements CommandLineRunner {
                 problemParts.add(part);
             }
             if (price != null || !price.equals("")) {
+                part.setIsUptoDate(true);
                 price = price.replaceAll("[^\\d.]", "");
                 price = price.split("\\.")[0] + "." + price.split("\\.")[1].substring(0, 2);
                 if (!price.contains(".")) {
                     price = price + ".00";
                 }
+            } else {
+                part.setIsUptoDate(false);
             }
             warnLogger.log("Found: " + name);
             warnLogger.log("For: " + price);

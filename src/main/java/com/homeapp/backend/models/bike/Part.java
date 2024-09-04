@@ -30,10 +30,14 @@ public class Part {
     @JsonProperty("dateLastUpdated")
     private String dateLastUpdated;
 
+    @JsonProperty("isUpToDate")
+    private boolean isUpToDate;
+
     /**
      * Zero argument Constructor to Instantiate a new Part.
      */
     public Part() {
+        this.isUpToDate = false;
     }
 
     /**
@@ -58,14 +62,16 @@ public class Part {
      * @param name              the name
      * @param price             the price
      * @param dateLastUpdated   the date the Price/name was last updated
+     * @param isUpToDate        Boolean to show if price was found on start-up
      */
-    public Part(String component, String internalReference, String name, String price, String link, String dateLastUpdated) {
+    public Part(String component, String internalReference, String name, String price, String link, String dateLastUpdated, boolean isUpToDate) {
         this.component = component;
         this.internalReference = internalReference;
         this.name = name;
         this.price = price;
         this.link = link;
         this.dateLastUpdated = dateLastUpdated;
+        this.isUpToDate = isUpToDate;
     }
 
     /**
@@ -176,6 +182,24 @@ public class Part {
         this.dateLastUpdated = dateLastUpdated;
     }
 
+    /**
+     * Gets isUpToDate.
+     *
+     * @return boolean isUpToDate
+     */
+    public boolean getIsUpToDate() {
+        return isUpToDate;
+    }
+
+    /**
+     * Sets IsUpToDate.
+     *
+     * @param isUpToDate boolean isUpToDate
+     */
+    public void setIsUptoDate(boolean isUpToDate) {
+        this.isUpToDate = isUpToDate;
+    }
+
     @Override
     public String toString() {
         return "Part{" +
@@ -185,6 +209,7 @@ public class Part {
                 ", price=" + price +
                 ", link='" + link + '\'' +
                 ", dateLastUpdated='" + dateLastUpdated + '\'' +
+                ", isUpToDate='" + isUpToDate + '\'' +
                 '}';
     }
 }
