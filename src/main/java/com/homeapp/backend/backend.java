@@ -27,7 +27,6 @@ public class backend implements CommandLineRunner {
     private static final ErrorLogger errorLogger = new ErrorLogger();
     private static final String today = LocalDate.now().toString();
     private static String price = "";
-    private static String name = "";
 
     public static void main(String[] args) {
         checkAllLinks();
@@ -54,10 +53,10 @@ public class backend implements CommandLineRunner {
                 if (statusCode == 200) {
                     setPartAttributesFromLink(problemParts, part);
                 } else {
-                    problemParts.add(part);
+                    invalidPart(problemParts, part);
                 }
             } catch (IOException e) {
-                problemParts.add(part);
+                invalidPart(problemParts, part);
             }
         }
         writePartsToFile(partListToWriteToFile);
@@ -102,57 +101,64 @@ public class backend implements CommandLineRunner {
      */
     static void setPartAttributesFromLink(Set<Part> problemParts, Part part) {
         try {
+            String name = part.getName();
+            price = part.getPrice();
             Document doc = Jsoup.connect(part.getLink()).timeout(5000).get();
             Optional<Element> e;
             if (part.getLink().contains("dolan-bikes")) {
                 e = Optional.ofNullable(doc.select("div.productBuy > div.productPanel").get(0));
                 if (!e.isPresent()) {
-                    problemParts.add(part);
+                    invalidPart(problemParts, part);
                     return;
                 } else {
                     name = e.get().select("h1").first().text();
                     price = e.get().select("div.price").select("span.price").first().text();
+                    setPartPricing(part);
                 }
             } else if (part.getLink().contains("evans")) {
                 e = Optional.ofNullable(doc.getElementById("productDetails"));
                 if (!e.isPresent()) {
-                    problemParts.add(part);
+                    invalidPart(problemParts, part);
                     return;
                 } else {
                     name = Objects.requireNonNull(e.get().getElementById("lblProductName")).text();
                     price = Objects.requireNonNull(e.get().getElementById("lblSellingPrice")).text();
+                    setPartPricing(part);
                 }
             } else if (part.getLink().contains("wiggle") || part.getLink().contains("chainreactioncycles")) {
                 e = Optional.ofNullable(doc.getElementById("productDetails"));
                 if (!e.isPresent()) {
-                    problemParts.add(part);
+                    invalidPart(problemParts, part);
                     return;
                 } else {
                     name = Objects.requireNonNull(e.get().getElementById("lblProductName")).text();
                     price = Objects.requireNonNull(e.get().getElementById("lblSellingPrice")).text();
+                    setPartPricing(part);
                 }
             } else if (part.getLink().contains("halfords")) {
                 e = Optional.ofNullable(doc.getElementById("productInfoBlock"));
                 if (!e.isPresent()) {
-                    problemParts.add(part);
+                    invalidPart(problemParts, part);
                     return;
                 } else {
                     name = Objects.requireNonNull(e.get().select("h1").first()).text();
                     price = Objects.requireNonNull(e.get().select("div.price").select("span.b-price__sale")).text();
+                    setPartPricing(part);
                 }
             } else if (part.getLink().contains("sjscycles")) {
                 e = Optional.of(doc);
                 if (!e.isPresent()) {
-                    problemParts.add(part);
+                    invalidPart(problemParts, part);
                     return;
                 } else {
                     name = Objects.requireNonNull(e.get().select("title").first().text());
                     price = Objects.requireNonNull(e.get().getElementById("ProductOptions").select("div.pl2-notnarrow").select("div.container-2-3-stackSM").select("span.f-xxxlarge")).text();
+                    setPartPricing(part);
                 }
             } else if (part.getLink().contains("halo")) {
                 e = Optional.ofNullable(doc.select("div.productDetails").get(0));
                 if (!e.isPresent()) {
-                    problemParts.add(part);
+                    invalidPart(problemParts, part);
                     return;
                 } else {
                     name = Objects.requireNonNull(e.get().select("h1").first()).text();
@@ -161,30 +167,35 @@ public class backend implements CommandLineRunner {
                     } else {
                         price = Objects.requireNonNull(e.get().select("div.priceSummary").select("span").first()).text();
                     }
+                    setPartPricing(part);
                 }
             } else {
                 errorLogger.log("Trying to use unknown website");
-                problemParts.add(part);
-            }
-            if (price != null || !price.equals("")) {
-                part.setIsUptoDate(true);
-                price = price.replaceAll("[^\\d.]", "");
-                price = price.split("\\.")[0] + "." + price.split("\\.")[1].substring(0, 2);
-                if (!price.contains(".")) {
-                    price = price + ".00";
-                }
-            } else {
-                part.setIsUptoDate(false);
+                invalidPart(problemParts, part);
             }
             warnLogger.log("Found: " + name);
             warnLogger.log("For: " + price);
             warnLogger.log("From: " + part.getLink());
-            part.setDateLastUpdated(today);
             part.setName(name);
             part.setPrice(price);
         } catch (IOException e) {
-            problemParts.add(part);
+            invalidPart(problemParts, part);
             errorLogger.log("An IOException occurred from: getPartFromLink!!See error message: " + e.getMessage() + "!!For bike Component: " + part.getComponent());
         }
+    }
+
+    private static void setPartPricing(Part part) {
+        part.setIsUptoDate(true);
+        price = price.replaceAll("[^\\d.]", "");
+        price = price.split("\\.")[0] + "." + price.split("\\.")[1].substring(0, 2);
+        if (!price.contains(".")) {
+            price = price + ".00";
+        }
+        part.setDateLastUpdated(today);
+    }
+
+    private static void invalidPart(Set<Part> problemParts, Part part) {
+        problemParts.add(part);
+        part.setIsUptoDate(false);
     }
 }
