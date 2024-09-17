@@ -54,12 +54,11 @@ public class BikePartsController {
         infoLogger.log("Get Bike Parts, API");
         fullBikeService.setBike(bike);
         BikeParts bikeParts = bikePartsService.getBikePartsForBike();
-        if (bikeParts.getErrorMessages().size() == 0) {
+        if (bikeParts.getErrorMessages().isEmpty()) {
             warnLogger.log("Returning Parts with ZERO errors!");
             return new ResponseEntity<>(bikeParts, HttpStatus.ACCEPTED);
         } else {
-            warnLogger.log("Returning Parts with some errors..." + bikeParts);
-            errorLogger.log("Returning Parts with some errors..." + bikeParts);
+            errorLogger.log("Returning Parts with some errors...: " + bikeParts.getErrorMessages());
             return new ResponseEntity<>(bikeParts, HttpStatus.OK);
         }
     }
