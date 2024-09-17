@@ -192,11 +192,11 @@ public class ShimanoGroupsetService {
             bikeParts.getErrorMessages().add(new Error(component, method, ref));
         }
         if (bike.getNumberOfFrontGears() == 1) {
-            ref = "Left-HydraulicSTI_1";
+            ref = "HydraulicSTI_1";
         } else if (bike.getNumberOfFrontGears() == 2) {
-            ref = "Left-HydraulicSTI_2";
+            ref = "HydraulicSTI_2";
         } else if (bike.getNumberOfFrontGears() == 3) {
-            ref = "Left-HydraulicSTI_3";
+            ref = "HydraulicSTI_3";
         } else {
             ref = null;
         }
