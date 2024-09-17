@@ -140,6 +140,8 @@ public class ShimanoGroupsetService {
                 } else {
                     ref = "MechanicalSTI_1_12";
                 }
+                findPartFromInternalRef(ref);
+                ref = "MechanicalSTI_1";
             }
             case 2 -> {
                 if (bike.getNumberOfRearGears() == 9) {

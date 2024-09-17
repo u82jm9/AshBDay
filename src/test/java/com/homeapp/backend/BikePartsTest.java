@@ -53,6 +53,10 @@ public class BikePartsTest {
             FullBike bike11 = new FullBike("Roady", frame11, HYDRAULIC_DISC, SHIMANO, DROPS, 2L, 11L, STI);
             bike11.setWheelPreference("Expensive");
             fullBikeService.create(bike11);
+            Frame frame13 = new Frame(GRAVEL, true, false, true);
+            FullBike bike13 = new FullBike("Gravel2", frame13, MECHANICAL_DISC, SHIMANO, DROPS, 1L, 11L, STI);
+            bike13.setWheelPreference("Expensive");
+            fullBikeService.create(bike13);
             Frame frame10 = new Frame(GRAVEL, true, false, true);
             FullBike bike10 = new FullBike("Gravel", frame10, HYDRAULIC_DISC, SHIMANO, FLARE, 1L, 11L, STI);
             bike10.setWheelPreference("Expensive");
@@ -402,6 +406,32 @@ public class BikePartsTest {
         long bikePrice = parts.getTotalBikePrice().longValue();
         assertEquals(parts.getListOfParts().size(), 10);
         assertTrue(bikePrice < 1500);
+    }
+
+    /**
+     * Test that the full price is heaps 8.
+     */
+    @Test
+    public void test_That_The_Gravel_Price_is_Heaps8() {
+        FullBike bikeBefore = fullBikeService.getBikeUsingName("Gravel").get();
+        fullBikeService.setBike(bikeBefore);
+        BikeParts parts = bikePartsService.getBikePartsForBike();
+        long bikePrice = parts.getTotalBikePrice().longValue();
+        assertEquals(parts.getListOfParts().size(), 10);
+        assertTrue(bikePrice > 1500);
+    }
+
+    /**
+     * Test that the full price is heaps 8.
+     */
+    @Test
+    public void test_That_The_Gravel2_Price_is_Heaps8() {
+        FullBike bikeBefore = fullBikeService.getBikeUsingName("Gravel2").get();
+        fullBikeService.setBike(bikeBefore);
+        BikeParts parts = bikePartsService.getBikePartsForBike();
+        long bikePrice = parts.getTotalBikePrice().longValue();
+        assertEquals(parts.getListOfParts().size(), 12);
+        assertTrue(bikePrice > 1500);
     }
 
     /**
