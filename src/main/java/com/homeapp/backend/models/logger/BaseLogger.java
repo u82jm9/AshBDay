@@ -11,11 +11,11 @@ public abstract class BaseLogger {
     /**
      * The Logs stamp formatter. Used at the start of each log to record the time the log was written.
      */
-    static final DateTimeFormatter LOGS_STAMP_FORMATTER = DateTimeFormatter.ofPattern("HH:mm:ss.SSS");
+    static final DateTimeFormatter LOGS_STAMP_FORMATTER = DateTimeFormatter.ISO_LOCAL_TIME;
     /**
      * The File name formatter. Used to create a String for the date, which becomes part of the DTOLog file name. Using Iso standard of MM-dd-yyyy to help store files in correct order.
      */
-    static final DateTimeFormatter FILE_NAME_FORMATTER = DateTimeFormatter.ofPattern("MM-dd-yyyy");
+    static final DateTimeFormatter FILE_NAME_FORMATTER = DateTimeFormatter.ISO_DATE;
 
     /**
      * Instantiates a new Base logger.
