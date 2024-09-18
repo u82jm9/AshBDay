@@ -156,7 +156,9 @@ public class ShimanoGroupsetService {
                 }
             }
             case 3 -> {
-                if (bike.getNumberOfRearGears() == 9) {
+                if (bike.getNumberOfRearGears() == 8) {
+                    ref = "MechanicalSTI_3_8";
+                } else if (bike.getNumberOfRearGears() == 9) {
                     ref = "MechanicalSTI_3_9";
                 } else {
                     bike.setNumberOfRearGears(10);
@@ -226,6 +228,16 @@ public class ShimanoGroupsetService {
         } else {
             bikeParts.getErrorMessages().add(new Error(component, method, ref));
         }
+        if (bike.getNumberOfFrontGears() == 3) {
+            ref = "TriggerShifter_3";
+        } else {
+            ref = "TriggerShifter_2";
+        }
+        if (!ref.isEmpty()) {
+            findPartFromInternalRef(ref);
+        } else {
+            bikeParts.getErrorMessages().add(new Error(component, method, ref));
+        }
     }
 
     private void getChainring() {
@@ -238,9 +250,7 @@ public class ShimanoGroupsetService {
             //Could not find active site for 1 by components
             //Below links are useless, have taken out option for Frontend selection
             case 1 -> {
-                if (bike.getNumberOfRearGears() == 10) {
-                    ref = "ChainSet_1_10";
-                } else if (bike.getNumberOfRearGears() == 11) {
+                if (bike.getNumberOfRearGears() == 11) {
                     ref = "ChainSet_1_11";
                 } else if (bike.getNumberOfRearGears() == 12) {
                     ref = "ChainSet_1_10";
@@ -379,7 +389,7 @@ public class ShimanoGroupsetService {
     }
 
     public void findPartFromInternalRef(String internalRef) {
-        infoLogger.log("Reading all Links from File");
+        infoLogger.log("Finding part: " + internalRef + ", from links file.");
         try {
             Optional<Part> part = retrievePartFromLinks(internalRef);
             part.ifPresentOrElse(p -> {
