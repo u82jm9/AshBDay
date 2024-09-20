@@ -58,7 +58,7 @@ public class BikePartsController {
             warnLogger.log("Returning Parts with ZERO errors!");
             return new ResponseEntity<>(bikeParts, HttpStatus.ACCEPTED);
         } else {
-            errorLogger.log("Returning Parts with some errors...: " + bikeParts.getErrorMessages());
+            errorLogger.log("Returning Parts for bike: " + bike.getBikeName() + "; with some errors: " + bikeParts.getErrorMessages());
             return new ResponseEntity<>(bikeParts, HttpStatus.OK);
         }
     }

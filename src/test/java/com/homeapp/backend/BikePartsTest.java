@@ -330,7 +330,7 @@ public class BikePartsTest {
         fullBikeService.setBike(bikeBefore);
         BikeParts parts = bikePartsService.getBikePartsForBike();
         long bikePrice = parts.getTotalBikePrice().longValue();
-        assertEquals(parts.getListOfParts().size(), 9);
+        assertEquals(parts.getListOfParts().size(), 8);
         assertTrue(bikePrice < 1500);
     }
 
@@ -356,7 +356,7 @@ public class BikePartsTest {
         fullBikeService.setBike(bikeBefore);
         BikeParts parts = bikePartsService.getBikePartsForBike();
         long bikePrice = parts.getTotalBikePrice().longValue();
-        assertEquals(parts.getListOfParts().size(), 11);
+        assertEquals(parts.getListOfParts().size(), 10);
         assertTrue(bikePrice < 1500);
     }
 
@@ -382,7 +382,7 @@ public class BikePartsTest {
         fullBikeService.setBike(bikeBefore);
         BikeParts parts = bikePartsService.getBikePartsForBike();
         long bikePrice = parts.getTotalBikePrice().longValue();
-        assertEquals(parts.getListOfParts().size(), 13);
+        assertEquals(parts.getListOfParts().size(), 12);
         assertTrue(bikePrice < 1500);
     }
 
@@ -395,7 +395,7 @@ public class BikePartsTest {
         fullBikeService.setBike(bikeBefore);
         BikeParts parts = bikePartsService.getBikePartsForBike();
         long bikePrice = parts.getTotalBikePrice().longValue();
-        assertEquals(parts.getListOfParts().size(), 12);
+        assertEquals(parts.getListOfParts().size(), 11);
         assertTrue(bikePrice > 1500);
     }
 
@@ -408,7 +408,7 @@ public class BikePartsTest {
         fullBikeService.setBike(bikeBefore);
         BikeParts parts = bikePartsService.getBikePartsForBike();
         long bikePrice = parts.getTotalBikePrice().longValue();
-        assertEquals(parts.getListOfParts().size(), 11);
+        assertEquals(parts.getListOfParts().size(), 10);
         assertTrue(bikePrice < 1500);
     }
 
