@@ -1,42 +1,100 @@
 [
   {
+    "category": "Misc",
+    "type": "twopart",
     "setup": "My dad had this strange obsession with collecting bottles!",
-    "punchline": "Would be one way to say he’s an alcoholic.",
-    "body": ""
+    "delivery": "Would be one way to say he’s an alcoholic.",
+    "joke": null
   },
   {
+    "category": "Misc",
+    "type": "twopart",
     "setup": "When I'm too tired to properly shower, I just go in, do a quick spin, and leave",
-    "punchline": "It's called a 360 no soap",
-    "body": ""
+    "delivery": "It's called a 360 no soap",
+    "joke": null
   },
   {
+    "category": "Pun",
+    "type": "twopart",
     "setup": "So my wife is fed up with my dad jokes and asked me to stop telling them.",
-    "punchline": "Me: how do you want me to stop?Wife: whatever means necessary.Me: ...? No it doesn't.",
-    "body": ""
+    "delivery": "Me: how do you want me to stop?Wife: whatever means necessary.Me: ...? No it doesn't.",
+    "joke": null
   },
   {
+    "category": "Dark",
+    "type": "twopart",
     "setup": "[NSFW] What’s Another Name For A Necrophiliac?",
-    "punchline": "Ghost Rider",
-    "body": ""
+    "delivery": "Ghost Rider",
+    "joke": null
   },
   {
+    "category": "Pun",
+    "type": "twopart",
     "setup": "My girlfriend left me and became a motorcycle enthusiast",
-    "punchline": "I guess she prefers two strokes to one stroke",
-    "body": ""
+    "delivery": "I guess she prefers two strokes to one stroke",
+    "joke": null
   },
   {
+    "category": "Pun",
+    "type": "twopart",
     "setup": "I didn’t know I had to actually put my electric toothbrush in my mouth!?!",
-    "punchline": "I thought it was Bluetooth.",
-    "body": ""
+    "delivery": "I thought it was Bluetooth.",
+    "joke": null
   },
   {
+    "category": "Pun",
+    "type": "twopart",
     "setup": "I saw a 5 legged woman crying and I asked her why",
-    "punchline": "She said she could never get shoes to match. I tried to console her so I said “at least your knickers fit like a glove”",
-    "body": ""
+    "delivery": "She said she could never get shoes to match. I tried to console her so I said “at least your knickers fit like a glove”",
+    "joke": null
   },
   {
+    "category": "Pun",
+    "type": "twopart",
     "setup": "My doctor was really impressed with the amount of hair I had on the scalp for my hair transplant",
-    "punchline": "However, he was a *bit* concerned that the scalp was not mine",
-    "body": ""
+    "delivery": "However, he was a *bit* concerned that the scalp was not mine",
+    "joke": null
+  },
+  {
+    "category": "Dark",
+    "type": "twopart",
+    "setup": "Dark humor is like cancer.",
+    "delivery": null,
+    "joke": null
+  },
+  {
+    "category": "Dark",
+    "type": "twopart",
+    "setup": "What did the cannibal do after he dumped his girlfriend?",
+    "delivery": null,
+    "joke": null
+  },
+  {
+    "category": "Programming",
+    "type": "single",
+    "setup": null,
+    "delivery": null,
+    "joke": "Algorithm: A word used by programmers when they don't want to explain how their code works."
+  },
+  {
+    "category": "Misc",
+    "type": "twopart",
+    "setup": "What's the difference between an in-law and an outlaw?",
+    "delivery": "An outlaw is wanted.",
+    "joke": null
+  },
+  {
+    "category": "Misc",
+    "type": "twopart",
+    "setup": "Arguing with a woman is like reading a software's license agreement.",
+    "delivery": "In the end you ignore everything and click \"I agree\".",
+    "joke": null
+  },
+  {
+    "category": "Misc",
+    "type": "twopart",
+    "setup": "If I make you breakfast in bed, a simple thank you is all I need.",
+    "delivery": "Not all this \"How the fuck did you get in my house?!\" nonsense.",
+    "joke": null
   }
 ]
