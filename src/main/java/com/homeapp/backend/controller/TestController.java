@@ -11,6 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+
 /**
  * The Test controller.
  * Houses APIs not specifically relating to BE objects, just for general BE usage.
@@ -63,5 +65,11 @@ public class TestController {
     public ResponseEntity<HttpStatus> saveThis(@RequestBody DTOJoke joke) {
         saveJokeService.save(joke);
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @GetMapping("GetSavedJokes")
+    public ResponseEntity<ArrayList<DTOJoke>> getSavedJokes() {
+        ArrayList<DTOJoke> allJokes = saveJokeService.readSavedJokesFile();
+        return new ResponseEntity<>(allJokes, HttpStatus.ACCEPTED);
     }
 }

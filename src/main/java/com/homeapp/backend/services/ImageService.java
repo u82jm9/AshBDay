@@ -2,6 +2,7 @@ package com.homeapp.backend.services;
 
 import com.homeapp.backend.models.bike.FullBike;
 import com.homeapp.backend.models.bike.Image;
+import com.homeapp.backend.models.bike.ImageComparator;
 import com.homeapp.backend.models.logger.InfoLogger;
 import com.homeapp.backend.models.logger.WarnLogger;
 import org.springframework.stereotype.Service;
@@ -55,6 +56,7 @@ public class ImageService {
         }
         CompletableFuture<Void> wheelImageFuture = CompletableFuture.runAsync(() -> imageList.add(chooseWheelImage(b)));
         CompletableFuture.allOf(frameImageFuture, barImageFuture, brakeImageFuture, chainImageFuture, cassetteImageFuture, wheelImageFuture).join();
+        imageList.sort(new ImageComparator());
         warnLogger.log("Bike: " + b);
         warnLogger.log("Returning List: " + imageList);
         return imageList;

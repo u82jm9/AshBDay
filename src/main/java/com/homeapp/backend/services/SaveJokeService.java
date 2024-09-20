@@ -25,7 +25,7 @@ public class SaveJokeService {
         this.jokes = readSavedJokesFile();
     }
 
-    private ArrayList<DTOJoke> readSavedJokesFile() {
+    public ArrayList<DTOJoke> readSavedJokesFile() {
         try {
             File file = new File(JOKES_FILE);
             if (!file.exists()) {
@@ -43,7 +43,7 @@ public class SaveJokeService {
     }
 
     public void save(DTOJoke joke) {
-        infoLogger.log("Saving Jokes: " + joke);
+        infoLogger.log("Saving Joke: " + joke);
         jokes.add(joke);
         saveToFile(JOKES_FILE, jokes);
     }

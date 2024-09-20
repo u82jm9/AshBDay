@@ -5,62 +5,63 @@ package com.homeapp.backend.models;
  */
 public class DTOJoke {
 
+    private String category;
+    private String type;
     private String setup;
-    private String punchline;
-    private String body;
+    private String delivery;
+    private String joke;
 
-    /**
-     * Zero argument Constructor to Instantiate a new DTOJoke.
-     */
     public DTOJoke() {
-        this.setup = "";
-        this.punchline = "";
-        this.body = "";
     }
 
-
-    public DTOJoke(String setup, String punchline, String body) {
-        this.setup = setup;
-        this.punchline = punchline;
-        this.body = body;
+    public String getJoke() {
+        return joke;
     }
 
+    public void setJoke(String joke) {
+        this.joke = joke;
+    }
+
+    public String getDelivery() {
+        return delivery;
+    }
+
+    public void setDelivery(String delivery) {
+        this.delivery = delivery;
+    }
 
     public String getSetup() {
         return setup;
     }
 
-
     public void setSetup(String setup) {
         this.setup = setup;
     }
 
-
-    public String getPunchline() {
-        return punchline;
+    public String getType() {
+        return type;
     }
 
-
-    public void setPunchline(String punchline) {
-        this.punchline = punchline;
+    public void setType(String type) {
+        this.type = type;
     }
 
-
-    public String getBody() {
-        return body;
+    public String getCategory() {
+        return category;
     }
 
-
-    public void setBody(String body) {
-        this.body = body;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     @Override
     public String toString() {
         return "DTOJoke{" +
-                "setup='" + setup + '\'' +
-                ", punchline='" + punchline + '\'' +
-                ", body='" + body + '\'' +
+                "category='" + category + '\'' +
+                ", type='" + type + '\'' +
+                ", setup='" + setup + '\'' +
+                ", delivery='" + delivery + '\'' +
+                ", joke='" + joke + '\'' +
                 '}';
     }
 }

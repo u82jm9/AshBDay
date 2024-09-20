@@ -145,8 +145,9 @@ public class ControllerTest {
     @Test
     public void test_That_the_FE_can_send_a_Joke_no_body_only() throws Exception {
         DTOJoke joke = new DTOJoke();
+        joke.setType("twopart");
         joke.setSetup("Test Joke Setup");
-        joke.setPunchline("Some witty punchline");
+        joke.setDelivery("Some witty punchline");
         this.mockMvc.perform(post(TEST_API_URL + "SaveThis").session(session).contentType("application/json")
                 .content(objectMapper.writeValueAsString(joke))).andExpect(status().isCreated());
     }
@@ -159,9 +160,16 @@ public class ControllerTest {
     @Test
     public void test_That_the_FE_can_send_a_Joke_body_only() throws Exception {
         DTOJoke joke = new DTOJoke();
-        joke.setBody("Test Joke Body");
+        joke.setType("single");
+        joke.setJoke("Test Joke");
         this.mockMvc.perform(post(TEST_API_URL + "SaveThis").session(session).contentType("application/json")
                 .content(objectMapper.writeValueAsString(joke))).andExpect(status().isCreated());
+    }
+
+    @Test
+    public void test_that_List_Of_jokes_returned() throws Exception {
+        this.mockMvc.perform(get(TEST_API_URL + "GetSavedJokes").session(session))
+                .andExpect(status().isAccepted());
     }
 
     /**
