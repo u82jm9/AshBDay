@@ -96,5 +96,26 @@
     "setup": "If I make you breakfast in bed, a simple thank you is all I need.",
     "delivery": "Not all this \"How the fuck did you get in my house?!\" nonsense.",
     "joke": null
+  },
+  {
+    "category": "Pun",
+    "type": "twopart",
+    "setup": "What happened to the man who got behind on payments to his exorcist?",
+    "delivery": "He got repossessed.",
+    "joke": null
+  },
+  {
+    "category": "Christmas",
+    "type": "twopart",
+    "setup": "What do elves post on Social Media?",
+    "delivery": "Elf-ies!",
+    "joke": null
+  },
+  {
+    "category": "Spooky",
+    "type": "twopart",
+    "setup": "What happened to the cannibal who showed up late to Halloween dinner?",
+    "delivery": "They gave him the cold shoulder.",
+    "joke": null
   }
 ]

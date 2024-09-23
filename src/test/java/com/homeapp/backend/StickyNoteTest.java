@@ -46,12 +46,14 @@ public class StickyNoteTest {
             StickyNote note2 = new StickyNote("Second Before All Method", map2, true);
             stickyNoteService.create(note2);
             Map<String, Boolean> map3 = new HashMap<>();
-            map3.put("This is the message for the third before all method", false);
+            map3.put("This is the message for the third before all method", true);
+            map3.put("This message is not complete", false);
+            map3.put("Putting in a second message, that is complete", true);
             StickyNote note3 = new StickyNote("Third Before All Method", map3, false);
             stickyNoteService.create(note3);
+            stickyNoteService.create("Go for a run!", "Seriously get up early and go for a run!!\nYou're just being lazy!", false);
             stickyNoteService.create("Gardening Work Left", "Dig more soil from Zebo. Flatten front and back lawns. Seed new grass. Fix nasty bit behind shed", true);
             stickyNoteService.create("Nothing Useful", "This is just to make an extra Sticky Note as I thought 4 would look better than 3!", true);
-            stickyNoteService.create("Go for a run!", "Seriously get up early and go for a run!!\nYou're just being lazy!", false);
             isSetupDone = true;
         }
     }
@@ -72,6 +74,22 @@ public class StickyNoteTest {
     public void test_That_Retrieve_All_Returns_List_Of_Notes() {
         List<StickyNote> stickyNoteList = stickyNoteService.retrieveAllNotes();
         assertNotNull(stickyNoteList);
+    }
+
+    /**
+     * Test that retrieve all returns list of notes.
+     */
+    @Test
+    public void test_That_Complete_Messages_Are_First() {
+        List<StickyNote> stickyNoteList = stickyNoteService.retrieveAllNotes();
+        for (StickyNote n : stickyNoteList) {
+            if (n.getTitle().equals("Third Before All Method")) {
+                List<Map.Entry<String, Boolean>> messages = n.getMessageMap().entrySet().stream().toList();
+                assertTrue(messages.get(0).getValue());
+                assertTrue(messages.get(1).getValue());
+                assertFalse(messages.get(2).getValue());
+            }
+        }
     }
 
     /**

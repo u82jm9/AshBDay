@@ -20,33 +20,47 @@
   },
   {
     "stickyNoteId": 3,
-    "title": "Nothing Useful",
+    "title": "Woodwork Projects",
     "messageMap": {
-      "This is just to make an extra Sticky Note as I thought 5 would look better than 3!": true
+      "Build Drawers for under stairs": false,
+      "Build bench with storage for Kids room": false,
+      "Get shelves / built in bench for new table": false
+
     },
-    "complete": true
+    "complete": false
   },
   {
     "stickyNoteId": 4,
     "title": "Morning Routine",
     "messageMap": {
-      "Get up with Tristan.": true,
-      "Make Coffee. ": true,
       "Wake up Lily and Izzy": false,
       "Make Breakfast.": false,
       "Brush Teeth.": false,
+      "Get up with Tristan.": true,
+      "Make Coffee. ": true,
       "Go to work.": false
     },
-    "complete": true
+    "complete": false
   },
   {
     "stickyNoteId": 5,
     "title": "Paint!",
     "messageMap": {
-      "Kitchen wall": true,
       "Bedroom wall.": false,
-      "Window sill": false,
-      "All Window Sills": false
+      "Window sill": true,
+      "Kitchen wall": true,
+      "All Window Sills": true
+    },
+    "complete": false
+  },
+  {
+    "stickyNoteId": 6,
+    "title": "Sort Bikes",
+    "messageMap": {
+      "Buy myself a new bike": false,
+      "Fix Dad bike front mech": false,
+      "Get Izzy onto bike scheme": false,
+      "Teach Tristan to cycle pedal bike": false
     },
     "complete": false
   }

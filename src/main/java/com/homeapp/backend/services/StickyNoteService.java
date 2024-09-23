@@ -11,10 +11,8 @@ import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * The Sticky Note Service class.
@@ -142,7 +140,16 @@ public class StickyNoteService {
      */
     public List<StickyNote> retrieveAllNotes() {
         infoLogger.log("Getting all notes");
-        notesList.sort((o1, o2) -> Boolean.compare(o1.isComplete(), o2.isComplete()));
+        notesList.sort(Comparator.comparing((StickyNote::getTitle)));
+        for (StickyNote sn : notesList) {
+            Map<String, Boolean> sortedMessages = sn.getMessageMap().entrySet().stream()
+                    .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+                    .collect(Collectors.toMap(
+                            Map.Entry::getKey,
+                            Map.Entry::getValue,
+                            (n1, n2) -> n1, LinkedHashMap::new));
+            sn.setMessageMap(sortedMessages);
+        }
         warnLogger.log("Number of notes found: " + notesList.size());
         return notesList;
     }
